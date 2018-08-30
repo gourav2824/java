@@ -1,0 +1,15 @@
+
+public class loop {
+
+	public static void main(String[] args) {
+		
+		int n = 1;
+		int a = 1;
+		while(n<=15)
+		{
+			System.out.println(n,a);
+			n++;
+		}
+	}
+
+}

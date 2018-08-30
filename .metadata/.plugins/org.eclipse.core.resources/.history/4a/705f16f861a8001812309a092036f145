@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class OctalAddition {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the First Number : ");
+		int n1 = sc.nextInt();
+		System.out.print("Enter the Second Number : ");
+		int n2 = sc.nextInt();
+		int a, b, da, db, sum=0, add, digit, power=1, carry=0;
+		
+//		a = n1;
+//		b = n2;
+//		while((a!=0) || (b!=0) || (carry!=0))
+//		{
+//			da = a % 10;
+//			db = b % 10;
+//			a = a / 10;
+//			b = b / 10;
+//			
+//			add = da + db + carry;
+//			
+//			digit = add % 8;
+//			carry = add / 8;
+//			
+//			sum += digit * power;
+//			power = power * 10;
+//		}
+//		
+//		System.out.print("Sum = " + sum);
+		
+		Subtraction(n1, n2);
+	}
+	
+	private static void Subtraction(int n1, int n2)
+	{
+		int a, b, da, db, sum=0, power=1, borrow=0;
+		
+		a = n1;
+		b = n2;
+		while((a!=0) || (b!=0))
+		{
+			da = a % 10;
+			db = b % 10;
+			a = a / 10;
+			b = b / 10;
+			da = da + borrow;
+			
+			if(da < db)
+			{
+				borrow = -1;
+				da += 8;
+			}
+			else
+			{
+				borrow = 0;
+			}
+			
+			digit = da - db;
+			sum += digit * power;
+			power = power * 10;
+		}
+	}
+
+}

@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Pattern12 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Number : ");
+		int n = sc.nextInt();
+		int columns = 2*n-1;
+		int row, col, num;
+		
+		row = 1;
+		while(row <= n)
+		{
+			col = 1;
+			num = 1;
+			while(col <= columns)
+			{
+				if((col <= row) || (col > columns - row))
+					System.out.print("* ");
+				
+				
+				else
+					System.out.print("  ");
+				col++;
+			}
+			
+			System.out.println();
+			row++;
+		}
+	}
+}

@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Pattern8 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Number : ");
+		int n = sc.nextInt();
+		int spaces=3, stars=0, row=1, col;
+		
+		while(row <= n)
+		{
+			if(row <= (n+1)/2)
+			{
+				spaces -= 1;
+				stars += 2;
+			}
+			
+			col=1;
+			while(col <= n)
+			{
+				//System.out.print("* ");
+				col++;
+			}
+			System.out.println(spaces + " " + stars);
+			//System.out.println();
+			row++;
+		}
+	}
+}

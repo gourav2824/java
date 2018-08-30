@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Pattern8 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Number : ");
+		int n = sc.nextInt();
+		int spaces=2, stars=1, row=1, col;
+		
+		while(row <= n)
+		{
+			while()
+		}
+
+	}
+
+}

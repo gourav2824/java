@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class CheckPrime {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a Number : ");
+		int n = sc.nextInt();
+		int i = 2;
+		int a = 1;
+		int flag;
+		
+		while(a<=n)
+		{
+			flag = 0;
+			while(i<=(a/2))
+			{
+				if(a%i==0)
+					flag = 1;
+				i++;
+			}
+			
+			if(flag==0)
+				System.out.println(a);
+			a++;
+		}
+		
+	}
+}
