@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class XORfrom1toN {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		
+		int res = 0;
+		for(int i=1; i<=n; i++) {
+			
+			res = res ^ i;
+		}
+		System.out.print(res);
+	}
+}
