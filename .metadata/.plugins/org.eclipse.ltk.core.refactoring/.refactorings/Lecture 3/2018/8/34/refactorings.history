@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Lecture 3/src/OctalAddition.java&apos; to &apos;OctalNumbers.java&apos;" description="Rename resource &apos;OctalAddition.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/OctalAddition.java" name="OctalNumbers.java" stamp="1535222740850" updateReferences="true"/>
-</session>
