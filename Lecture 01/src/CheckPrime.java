@@ -28,8 +28,7 @@ public class CheckPrime {
 			if(flag==0)
 				System.out.print(" " + a);
 			a++;
-		}
-		
+		}		
 		sc.close();
 	}
 }
