@@ -14,7 +14,7 @@ public class Recursion {
 		//printSetsWithEqualSum(arr, 0, new ArrayList<Integer>(), new ArrayList<Integer>(), 0, 0);
 		//printPermutationsS("abc", "");
 		//printPermutationsSB(new StringBuilder("abc"), new StringBuilder(""));
-		printPermutationsQuesChoice(new StringBuilder("abc"), new StringBuilder(""));
+		//printPermutationsQuesChoice(new StringBuilder("abc"), new StringBuilder(""));
 	}
 	
 	private static void printTargetSubset(int[] arr, int vidx, int sum, String set, int sos) {
@@ -124,7 +124,6 @@ public class Recursion {
 	}
 	
 	private static void CryptoArithmetic(String s1, String s2, String s3, int[] arr) {
-		
 		
 	}
 }
