@@ -26,7 +26,11 @@ public class Quick_Sort {
 //		int val = getPolyVal(2, 3);
 //		System.out.print(val);
 		
-		SieveOfEratosthenes(30);
+//		SieveOfEratosthenes(30);
+		
+		String word = "abdcbbbjshdbadbaba";
+		char hfc = highestFrequencyCharacter(word);
+		System.out.print(hfc);
 	}
 	
 	private static void QuickSort(int[] arr, int lo, int hi) {
@@ -149,5 +153,24 @@ public class Quick_Sort {
 				System.out.print(i + " ");
 			}
 		}
+	}
+	
+	private static char highestFrequencyCharacter(String word) {
+		
+		int[] map = new int[26];
+		
+		for(int i=0; i < word.length(); i++) {
+			char ch = word.charAt(i);
+			map[ch - 'a']++;
+		}
+		
+		int maxchi = 0;
+		for(int i=1; i < map.length; i++) {
+			if(map[i] > map[maxchi]) {
+				maxchi = i;
+			}
+		}
+		
+		return((char)(maxchi + 'a'));
 	}
 }
