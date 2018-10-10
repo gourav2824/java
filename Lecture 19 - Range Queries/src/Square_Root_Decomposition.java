@@ -3,8 +3,8 @@ public class Square_Root_Decomposition {
 	
 	static int[] arr;
 	static int[] sqrt;
-	static int bs;
-	static int bc;
+	static int bs;      // block size
+	static int bc;      // block count
 
 	public static void main(String[] args) {
 		
