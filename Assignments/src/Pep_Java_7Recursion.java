@@ -13,13 +13,19 @@ public class Pep_Java_7Recursion {
 		}
 		
 		int num = sc.nextInt();
+		int i = sc.nextInt();
 		
 //		PrintInvertedTriangle(n);
 //		System.out.println(NthTriangle(n));
 //		System.out.println(CheckSortedArray(arr, 0));
 //		System.out.println(FindNumberInArray(arr, 0, num));
 //		System.out.println(IndexOfNumber(arr, 0, num));
-		System.out.println(LastIndexOfNumber(arr, 0, num));
+//		System.out.println(LastIndexOfNumber(arr, 0, num));
+		
+//		int[] allIndices = AllIndexOfNumber(arr, 0, num, 0);
+//		System.out.println(allIndices[i]);
+		
+		
 	}
 	
 	private static void PrintInvertedTriangle(int n) {
@@ -36,20 +42,28 @@ public class Pep_Java_7Recursion {
 		PrintInvertedTriangle(n-1);
 	}
 	
-	private static void BinomialPattern(int n) {
+	private static int BinomialPattern(int n) {
 		
 		if(n == 0) {
 			System.out.println("1");
-			return;
+			return 0;
 		}
 		
 		BinomialPattern(n-1);
-		printBinomialTerm(n, n);
+		int res = printBinomialTerm(n, n);
+		return res;
 	}
 	
-	private static void printBinomialTerm(int n, int r) {
+	private static int printBinomialTerm(int n, int r) {
 		
-		int KplusOne = printBinomialTerm(n, r-1) * ();
+		if(r == 0) {
+			System.out.print("1 ");
+			return 1;
+		}
+		
+		int res = (printBinomialTerm(n, r - 1) * (n - r - 1)) / (r + 1);
+		System.out.print(res + " ");
+		return res;
 	}
 	
 	private static int NthTriangle(int n) {
@@ -128,8 +142,25 @@ public class Pep_Java_7Recursion {
 		}
 	}
 	
-	private void AllIndexOfNumber(int[] arr, int vidx, int num, int count, int[] indices) {
+	private static int[] AllIndexOfNumber(int[] arr, int vidx, int num, int count) {
 		
+		if(vidx == arr.length) {
+			
+			int[] ba = new int[count];
+			return ba;
+		}
 		
+		if(arr[vidx] == num) {
+			
+			int[] res = AllIndexOfNumber(arr, vidx + 1, num, count + 1);
+			res[count] = vidx;
+			return res;
+		}
+		
+		else {
+			
+			int[] res = AllIndexOfNumber(arr, vidx + 1, num, count);
+			return res;
+		}
 	}
 }
