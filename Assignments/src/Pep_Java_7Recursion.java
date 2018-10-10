@@ -128,7 +128,7 @@ public class Pep_Java_7Recursion {
 		}
 	}
 	
-	private void AllIndexOfNumber(int[] arr, int vidx, int num, int[] indices) {
+	private void AllIndexOfNumber(int[] arr, int vidx, int num, int count, int[] indices) {
 		
 		
 	}
