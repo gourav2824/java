@@ -40,6 +40,13 @@ public class Square_Root_Decomposition {
 		
 		int res = 0;
 		
+		if(lbn == rbn) {
+			for(int i = left; i <= right; i++) {
+				res += arr[i];
+			}
+			return res;
+		}
+		
 		for(int i=left; i < (lbn + 1) * bs; i++) {
 			res += arr[i];
 		}
@@ -54,5 +61,4 @@ public class Square_Root_Decomposition {
 		
 		return res;
 	}
-
 }
