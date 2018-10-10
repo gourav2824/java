@@ -28,9 +28,9 @@ public class Quick_Sort {
 		
 //		SieveOfEratosthenes(30);
 		
-		String word = "abdcbbbjshdbadbaba";
-		char hfc = highestFrequencyCharacter(word);
-		System.out.print(hfc);
+//		String word = "abdcbbbjshdbadbaba";
+//		char hfc = highestFrequencyCharacter(word);
+//		System.out.print(hfc);
 	}
 	
 	private static void QuickSort(int[] arr, int lo, int hi) {
