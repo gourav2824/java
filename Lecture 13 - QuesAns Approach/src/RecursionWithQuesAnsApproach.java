@@ -7,7 +7,7 @@ public class RecursionWithQuesAnsApproach {
 		//SubSequenceWithAscii("ab", "");
 		//GetKeyPadCodes("781", "");
 		//getBoardPath(0, 10, "");
-		//getMatrixPaths(0, 0, 3, 3, "");
+		getMatrixPaths(0, 0, 2, 2, "");
 		//getAllPaths(0, 0, 3, 3, "");
 		int[][] arr = {
 				{0,1,0,0,0},
@@ -17,9 +17,9 @@ public class RecursionWithQuesAnsApproach {
 				{0,1,1,0,0}
 		};
 		
-		boolean[][] visited = new boolean[5][5];
-		
-		FloodFill(0, 0, arr, visited, "");
+//		boolean[][] visited = new boolean[5][5];
+//		
+//		FloodFill(0, 0, arr, visited, "");
 	}
 	
 	static String[] codes = {"yz","abc","de","fghi","jk","lm","nop","qrst","uv","wx"};

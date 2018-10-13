@@ -7,13 +7,13 @@ public class Pep_Java_7Recursion {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		
-		int[] arr = new int[n];
-		for(int i=0; i < n; i++) {
-			arr[i] = sc.nextInt();
-		}
-		
-		int num = sc.nextInt();
-		int i = sc.nextInt();
+//		int[] arr = new int[n];
+//		for(int i=0; i < n; i++) {
+//			arr[i] = sc.nextInt();
+//		}
+//		
+//		int num = sc.nextInt();
+//		int i = sc.nextInt();
 		
 //		PrintInvertedTriangle(n);
 //		System.out.println(NthTriangle(n));
@@ -25,6 +25,7 @@ public class Pep_Java_7Recursion {
 //		int[] allIndices = AllIndexOfNumber(arr, 0, num, 0);
 //		System.out.println(allIndices[i]);
 		
+		BinomialPattern(n);
 		
 	}
 	
