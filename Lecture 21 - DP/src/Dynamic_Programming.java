@@ -15,8 +15,13 @@ public class Dynamic_Programming {
 //		};
 //		
 //		LargestOneSquareMatrix(arr);
+//		printPalindromicSubstrings("abccbc");
 		
-		printPalindromicSubstrings("abccbc");
+		String str = "abccbc";
+//		System.out.println(MinPalindromicCuts(str, 0, str.length() - 1));
+		Integer[][] qb = new Integer[str.length()][str.length()];
+		System.out.println(MinPalindromicCutsMem(str, 0, str.length() - 1, qb));
+		
 	}
 	
 	public static void LargestOneSquareMatrix(int[][] arr) {
@@ -84,5 +89,66 @@ public class Dynamic_Programming {
 				}
 			}
 		}
+	}
+	
+	private static int MinPalindromicCuts(String str, int i, int j) {
+		
+		if(IsPalindrome(str, i, j)) {
+			return 0;
+		}
+		
+		int minc = Integer.MAX_VALUE;
+		
+		for(int cp = i; cp < j; cp++) {
+			
+			int c1 = MinPalindromicCuts(str, i, cp);
+			int c2 = MinPalindromicCuts(str, cp + 1, j);
+			int tc = c1 + c2 + 1;
+			minc = Math.min(minc, tc);
+		}
+		
+		return minc;
+	}
+	
+	private static boolean IsPalindrome(String str, int i, int j) {
+		
+		int left = i;
+		int right = j;
+		
+		while(left < right) {
+			
+			if(str.charAt(left) != str.charAt(right)) {
+				return false;
+			}
+			
+			left++;
+			right--;
+		}
+		
+		return true;
+	}
+	
+	private static int MinPalindromicCutsMem(String str, int i, int j, Integer[][] qb) {
+		
+		if(IsPalindrome(str, i, j)) {
+			return 0;
+		}
+		
+		if(qb[i][j] != null) {
+			return qb[i][j];
+		}
+		
+		int minc = Integer.MAX_VALUE;
+		
+		for(int cp = i; cp < j; cp++) {
+			
+			int c1 = MinPalindromicCutsMem(str, i, cp, qb);
+			int c2 = MinPalindromicCutsMem(str, cp + 1, j, qb);
+			int tc = c1 + c2 + 1;
+			minc = Math.min(minc, tc);
+		}
+		
+		qb[i][j] = minc;
+		return minc;
 	}
 }
