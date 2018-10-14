@@ -17,10 +17,13 @@ public class Dynamic_Programming {
 //		LargestOneSquareMatrix(arr);
 //		printPalindromicSubstrings("abccbc");
 		
-		String str = "abccbc";
+//		String str = "abccbc";
 //		System.out.println(MinPalindromicCuts(str, 0, str.length() - 1));
-		Integer[][] qb = new Integer[str.length()][str.length()];
-		System.out.println(MinPalindromicCutsMem(str, 0, str.length() - 1, qb));
+//		Integer[][] qb = new Integer[str.length()][str.length()];
+//		System.out.println(MinPalindromicCutsMem(str, 0, str.length() - 1, qb));
+		
+		int[] dims = {10, 20, 30, 40, 50, 60};
+		System.out.println(MatrixChainMultiplication(dims, 0, dims.length - 1));
 		
 	}
 	
@@ -149,6 +152,27 @@ public class Dynamic_Programming {
 		}
 		
 		qb[i][j] = minc;
+		return minc;
+	}
+	
+	private static int MatrixChainMultiplication(int[] dims, int i, int j) {
+		
+		if(i + 1 == j) {
+			return 0;
+		}
+		
+		int minc = Integer.MAX_VALUE;
+		
+		for(int cp = i+1; cp < j; cp++) {
+			
+			int c1 = MatrixChainMultiplication(dims, i, cp);
+			int c2 = MatrixChainMultiplication(dims, cp, j);
+			int muc = dims[i] * dims[cp] * dims[j];
+			
+			int tc = c1 + c2 + muc;
+			minc = Math.min(minc, tc);
+		}
+		
 		return minc;
 	}
 }
