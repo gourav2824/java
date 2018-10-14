@@ -23,11 +23,11 @@ public class Dynamic_Programming {
 //		System.out.println(MinPalindromicCutsMem(str, 0, str.length() - 1, qb));
 		
 		int[] dims = {10, 20, 30, 40, 50, 60};
-		System.out.println(MatrixChainMultiplication(dims, 0, dims.length - 1));
-		
+//		System.out.println(MatrixChainMultiplication(dims, 0, dims.length - 1));
+		MatrixChainMultiplicationTabulation(dims);
 	}
 	
-	public static void LargestOneSquareMatrix(int[][] arr) {
+	public static void LargestOneSquareMatrix(int[][] arr) {		// Tabulation
 		
 		int[][] strg = new int[arr.length][arr[0].length];
 		int max = Integer.MIN_VALUE;
@@ -174,5 +174,43 @@ public class Dynamic_Programming {
 		}
 		
 		return minc;
+	}
+	
+	private static void MatrixChainMultiplicationTabulation(int[] dims) {
+		
+		int[][] strg = new int[dims.length - 1][dims.length - 1];
+		
+		for(int diag = 0; diag < strg.length; diag++) {
+			for(int i = 0; i + diag < strg.length; i++) {
+				
+				int j = i + diag;
+				
+				if(diag == 0) {
+					strg[i][j] = 0;
+				}
+				
+//				else if(diag == 1) {
+//					strg[i][j] = dims[i] * dims[diag] * dims[j];
+//				}
+				
+				else {
+					
+					int minc = Integer.MAX_VALUE;
+					
+					for(int k = 1; k <= diag; k++) {
+						
+						int c1 = strg[i][i + k - 1];
+						int c2 = strg[i + k][j];
+						int muc = dims[i] * dims[i + k] * dims[j + 1];
+						int tc = c1 + c2 + muc;
+						minc = Math.min(minc, tc);
+					}
+					
+					strg[i][j] = minc;
+				}
+			}
+		}
+		
+		System.out.println(strg[0][strg.length - 1]);
 	}
 }
