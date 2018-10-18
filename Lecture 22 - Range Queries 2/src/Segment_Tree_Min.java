@@ -13,14 +13,14 @@ public class Segment_Tree_Min {
 		
 		build(0, 0, ba.length - 1);
 		
-		System.out.println(query(0, 0, ba.length - 1, 1, 3));	//15
-		System.out.println(query(0, 0, ba.length - 1, 0, 2));	//29
+		System.out.println(query(0, 0, ba.length - 1, 1, 3));	//-6
+		System.out.println(query(0, 0, ba.length - 1, 0, 2));	//2
 		update(0, 0, ba.length - 1, 3, 10);
-		System.out.println(query(0, 0, ba.length - 1, 1, 3));	//25
-		System.out.println(query(0, 0, ba.length - 1, 0, 2));	//29
+		System.out.println(query(0, 0, ba.length - 1, 1, 3));	//2
+		System.out.println(query(0, 0, ba.length - 1, 0, 2));	//2
 		update(0, 0, ba.length - 1, 1, -10);
-		System.out.println(query(0, 0, ba.length - 1, 1, 3));	//15
-		System.out.println(query(0, 0, ba.length - 1, 0, 2));	//19
+		System.out.println(query(0, 0, ba.length - 1, 1, 3));	//2
+		System.out.println(query(0, 0, ba.length - 1, 0, 2));	//2
 	}
 	
 	private static int getLog(int n, boolean floor) {
