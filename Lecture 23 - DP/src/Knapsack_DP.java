@@ -11,7 +11,7 @@ public class Knapsack_DP {
 		knapsack(weights, prizes, capacity, strg);
 	}
 	
-	private static void knapsack(int[] weights, int[] prizes, int capacity, int[][] strg) {
+	private static void knapsack(int[] weights, int[] prizes, int capacity, int[][] strg) {		// 0/1 Knapsack
 		
 		for(int i = 1; i < strg.length; i++) {
 			for(int j = 1; j < strg[0].length; j++) {
@@ -29,5 +29,4 @@ public class Knapsack_DP {
 		
 		System.out.println("Maximum Value = " + strg[strg.length - 1][strg[0].length - 1]);
 	}
-
 }
