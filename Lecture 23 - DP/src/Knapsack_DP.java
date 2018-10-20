@@ -29,4 +29,20 @@ public class Knapsack_DP {
 		
 		System.out.println("Maximum Value = " + strg[strg.length - 1][strg[0].length - 1]);
 	}
+	
+	private static void printKnapsack(int[] weights, int[] prizes, int[][] strg, int i, int j, String asf) {
+		
+		if(j >= weights[i - 1]) {
+			printKnapsack(weights, prizes, strg, i - 1, j, asf + (i - 1) + " ");
+		}
+		
+		else {
+			if(strg[i - 1][j] >= prizes[i - 1] + strg[i - 1][j - weights[i - 1]]) {
+				
+			}
+			else {
+				
+			}
+		}
+	}
 }
