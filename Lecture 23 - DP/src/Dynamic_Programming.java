@@ -55,8 +55,7 @@ public class Dynamic_Programming {
 		}
 		
 		if(j >= arr[i - 1] && strg[i - 1][j - arr[i - 1]] == true) {
-			printSubSets(strg, arr, i - 1, j - arr[i - 1], asf + " " + arr[i - 1]);
+			printSubSets(strg, arr, i - 1, j - arr[i - 1], asf + arr[i - 1] + " ");
 		}
 	}
-
 }
