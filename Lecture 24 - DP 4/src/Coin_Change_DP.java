@@ -24,7 +24,7 @@ public class Coin_Change_DP {
 			}
 		}
 		
-		System.out.println(strg[target]);
+		System.out.println("Permutations = " + strg[target]);
 	}
 	
 	private static void CoinChangeCombinations(int[] coins, int target) {
@@ -41,6 +41,6 @@ public class Coin_Change_DP {
 			}
 		}
 		
-		System.out.println(strg[target]);
+		System.out.println("Combinations = " + strg[target]);
 	}
 }
