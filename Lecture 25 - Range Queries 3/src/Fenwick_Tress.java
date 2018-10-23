@@ -1,5 +1,5 @@
 
-public class Range_Queries {
+public class Fenwick_Tress {
 	
 	static int[] fa;
 	static int[] arr;
@@ -31,11 +31,11 @@ public class Range_Queries {
 			
 			fa[idx] += delta;
 			idx += (idx & -idx);
-			
 		}
 	}
 	
 	public static int query(int l, int r) {
+		
 		return getPrefixSum(r) - getPrefixSum(l - 1);
 	}
 	
@@ -48,5 +48,4 @@ public class Range_Queries {
 		}
 		return sum;
 	}
-
 }
