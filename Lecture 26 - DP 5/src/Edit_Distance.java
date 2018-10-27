@@ -3,7 +3,7 @@ public class Edit_Distance {
 
 	public static void main(String[] args) {
 		
-		String s1 = "abcdeghi";
+		String s1 = "abcdegdshgjdjhi";
 		String s2 = "acdfgkhi";
 		
 		System.out.println(EditDistance(s1, s2, new Integer[s1.length() + 1][s2.length() + 1]));
@@ -54,16 +54,40 @@ public class Edit_Distance {
 		
 		int[][] strg = new int[s1.length() + 1][s2.length() + 1];
 		
-		for(int i = strg.length - 2; i >= 0; i--) {
-			for(int j = strg[0].length - 2; j >= 0; j--) {
+//		int counter = 0;
+//		for(int i = strg[0].length; i >= 0; i--) {
+//			strg[strg.length][i] = counter;
+//		}
+//		
+//		counter = 0;
+//		for(int i = strg.length; i >= 0; i--) {
+//			strg[i][strg[0].length] = counter;
+//		}
+		
+		for(int i = strg.length - 1; i >= 0; i--) {
+			for(int j = strg[0].length - 1; j >= 0; j--) {
 				
-				if(s1.charAt(i) == s2.charAt(j)) {
-					
-					strg[i][j] = strg[i + 1][j + 1];
+				if(i == strg.length - 1 && j == strg[0].length - 1) {
+					strg[i][j] = 0;
+				}
+				
+				else if(i == strg.length - 1) {
+					strg[i][j] = strg[0].length - j;
+				}
+				
+				else if(j == strg[0].length - 1) {
+					strg[i][j] = strg.length - i;
 				}
 				
 				else {
-					strg[i][j] = 1 + Math.min(strg[i + 1][j + 1], Math.min(strg[i][j + 1], strg[i + 1][j]));
+					if(s1.charAt(i) == s2.charAt(j)) {
+						
+						strg[i][j] = strg[i + 1][j + 1];
+					}
+					
+					else {
+						strg[i][j] = 1 + Math.min(strg[i + 1][j + 1], Math.min(strg[i][j + 1], strg[i + 1][j]));
+					}
 				}
 			}
 		}
