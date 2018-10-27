@@ -7,6 +7,7 @@ public class Edit_Distance {
 		String s2 = "acdfgkhi";
 		
 		System.out.println(EditDistance(s1, s2, new Integer[s1.length() + 1][s2.length() + 1]));
+		System.out.println(EditDistanceTabulation(s1, s2));
 	}
 	
 	private static int EditDistance(String s1, String s2, Integer[][] qb) {		// Memoization
@@ -47,5 +48,26 @@ public class Edit_Distance {
 		
 		qb[s1.length()][s2.length()] = ans;
 		return ans;
+	}
+	
+	private static int EditDistanceTabulation(String s1, String s2) {
+		
+		int[][] strg = new int[s1.length() + 1][s2.length() + 1];
+		
+		for(int i = strg.length - 2; i >= 0; i--) {
+			for(int j = strg[0].length - 2; j >= 0; j--) {
+				
+				if(s1.charAt(i) == s2.charAt(j)) {
+					
+					strg[i][j] = strg[i + 1][j + 1];
+				}
+				
+				else {
+					strg[i][j] = 1 + Math.min(strg[i + 1][j + 1], Math.min(strg[i][j + 1], strg[i + 1][j]));
+				}
+			}
+		}
+		
+		return strg[0][0];
 	}
 }
