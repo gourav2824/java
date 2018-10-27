@@ -57,11 +57,13 @@ public class Edit_Distance {
 //		int counter = 0;
 //		for(int i = strg[0].length; i >= 0; i--) {
 //			strg[strg.length][i] = counter;
+//			counter ++;
 //		}
 //		
 //		counter = 0;
 //		for(int i = strg.length; i >= 0; i--) {
 //			strg[i][strg[0].length] = counter;
+//			counter ++;
 //		}
 		
 		for(int i = strg.length - 1; i >= 0; i--) {
