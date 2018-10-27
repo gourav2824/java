@@ -7,7 +7,7 @@ public class Longest_Palindromic_Subsequence {
 		System.out.println(LPS(str, 0, str.length() - 1, new Integer[str.length()][str.length()]));
 	}
 	
-	private static int LPS(String str, int i, int j, Integer[][] qb) {
+	private static int LPS(String str, int i, int j, Integer[][] qb) {		// Memoization
 		
 		if(i > j) {
 			return 0;
@@ -38,5 +38,17 @@ public class Longest_Palindromic_Subsequence {
 		
 		qb[i][j] = ans;
 		return ans;
+	}
+	
+	private static int LPSTabulation(String str) {			// Tabulation
+		
+		int[][] strg = new int[str.length()][str.length()];
+		
+		for(int gap = 0; gap < str.length(); gap++) {
+			for(int i = 0, j = gap; j > str.length(); j++) {
+				
+				if()
+			}
+		}
 	}
 }
