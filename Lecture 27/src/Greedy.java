@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Greedy {
 
@@ -10,7 +11,6 @@ public class Greedy {
 		
 		int[] arrivals = {900, 940, 950, 1100, 1500, 1800};
 		int[] departures = {910, 1200, 1120, 1130, 1900, 2000};
-		
 		minPlatformsCount(arrivals, departures);
 	}
 	
@@ -48,6 +48,9 @@ public class Greedy {
 	}
 	
 	private static void minPlatformsCount(int[] arrivals, int[] departures) {
+		
+		Arrays.sort(arrivals);
+		Arrays.sort(departures);
 		
 		int i = 0, j = 0;
 		
