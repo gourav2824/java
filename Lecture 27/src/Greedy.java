@@ -5,8 +5,13 @@ public class Greedy {
 		
 //		egyptianFraction(3, 7);
 		
-		int[] arr = {5, 6, 10, 100, 10, 5};
-		MaxSumNoAdjacent(arr);
+//		int[] arr = {5, 6, 10, 100, 10, 5};
+//		MaxSumNoAdjacent(arr);
+		
+		int[] arrivals = {900, 940, 950, 1100, 1500, 1800};
+		int[] departures = {910, 1200, 1120, 1130, 1900, 2000};
+		
+		minPlatformsCount(arrivals, departures);
 	}
 	
 	private static void egyptianFraction(int num, int denom) {
@@ -40,5 +45,32 @@ public class Greedy {
 		}
 		
 		System.out.println(Math.max(inc, exc));
+	}
+	
+	private static void minPlatformsCount(int[] arrivals, int[] departures) {
+		
+		int i = 0, j = 0;
+		
+		int cars = 0;
+		int min = Integer.MIN_VALUE;
+		
+		while(i < arrivals.length && j < departures.length) {
+			
+			if(arrivals[i] < departures[j]) {
+				cars++;
+				i++;
+			}
+			
+			else {
+				cars--;
+				j++;
+			}
+			
+			if(cars > min) {
+				min = cars;
+			}
+		}
+		
+		System.out.println("Minimum Platforms Required = " + min);
 	}
 }
