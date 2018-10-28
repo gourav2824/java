@@ -39,6 +39,6 @@ public class Greedy {
 			exc = Math.max(oinc, exc);
 		}
 		
-		System.out.println(inc);
+		System.out.println(Math.max(inc, exc));
 	}
 }
