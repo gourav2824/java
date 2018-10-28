@@ -1,5 +1,5 @@
 
-public class Egyptian_Fraction {
+public class Greedy {
 
 	public static void main(String[] args) {
 		
