@@ -58,6 +58,6 @@ public class Stack {
 			
 			System.out.print(arr[i] + " ");
 		}
-		System.out.println();
+		System.out.println(".");
 	}
 }
