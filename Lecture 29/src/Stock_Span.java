@@ -1,14 +1,14 @@
 
-public class Stack_Span {
+public class Stock_Span {
 
 	public static void main(String[] args) {
 		
 		int[] arr = {30, 40, 50, 45, 48, 60, 20, 25, 38, 32, 37, 50};
 		
-		StackSpan(arr);
+		StockSpan(arr);
 	}
 	
-	private static void StackSpan(int[] arr) {		// arr -> prices
+	private static void StockSpan(int[] arr) {		// arr -> prices
 		
 		Stack st = new Stack(arr.length);
 		int[] spans = new int[arr.length];
