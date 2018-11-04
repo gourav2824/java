@@ -25,7 +25,7 @@ public class Balanced_Brackets {
 				if(st.size() == 0) {		// more closing brackets
 					return false;
 				}
-				else if(obs.indexOf(st.top()) != cbs.indexOf(ch)) {
+				else if(obs.indexOf(st.top()) != cbs.indexOf(ch)) {		// brackets mismatching
 					return false;
 				}
 				st.pop();
