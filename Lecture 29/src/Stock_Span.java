@@ -13,28 +13,6 @@ public class Stock_Span {
 		Stack st = new Stack(arr.length);
 		int[] spans = new int[arr.length];
 		
-//		int idx = 0;
-//		
-//		for(int i = 0; i < arr.length; i++) {
-//			
-//			if(st.isEmpty()) {
-//				st.push(i);
-//				spans[i] = i + 1;
-//			}
-//			
-//			else if(arr[st.top()] > arr[i]) {
-//				spans[i] = i - st.top();
-//				st.push(i);
-//			}
-//			
-//			else {
-//				while(arr[st.top()] < arr[i]) {
-//					
-//					st.pop();
-//				}
-//			}
-//		}
-		
 		spans[0] = 1;
 		st.push(0);
 		
