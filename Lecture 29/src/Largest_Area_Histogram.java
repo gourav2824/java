@@ -21,13 +21,12 @@ public class Largest_Area_Histogram {
 //				st.pop();
 //				int area = st.isEmpty() ? arr[i - 1] * i : (arr[i - 1] * (i - st.top() - 1));
 //				
-//				max = Math.max(max, area);
+//				maxa = Math.max(maxa, area);
 //			}
 //			
 //			st.push(i);
 //		}
-//		
-//		System.out.println(max);
+		
 		
 		st.push(0);
 		for(int i = 1; i < arr.length; i++) {
