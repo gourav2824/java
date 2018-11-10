@@ -1,9 +1,9 @@
 
 public class Queue {
 	
-	private int[] arr;
-	private int front = 0;
-	private int size = 0;
+	protected int[] arr;
+	protected int front = 0;
+	protected int size = 0;
 	
 	public Queue(int cap) {
 		this.arr = new int[cap];
