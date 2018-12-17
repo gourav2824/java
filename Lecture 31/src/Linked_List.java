@@ -11,23 +11,74 @@ public class Linked_List {
 	Node tail;
 	int size;
 	
-	public int getFirst() {
+	public int getFirst() {			// O(1)
 		
+		if(size == 0) {
+			return -1;
+		}
+		
+		return head.data;
 	}
 	
-	public int getLast() {
+	public int getLast() {			// O(1)
 		
+		if(size == 0) {
+			return -1;
+		}
+		
+		return tail.data;
 	}
 	
-	public int getAt(int idx) {
+	public int getAt(int idx) {			// O(n)
 		
+		if(idx < 0 || idx >= size) {
+			System.out.print("Index Out Of Bound");
+			return -1;
+		}
+		
+		Node temp = head;
+		
+		for(int i = 0; i < idx; i++) {
+			temp = temp.next;
+		}
+		
+		return temp.data;
 	}
 	
-	public void addFirst(int data) {
+	private Node getNodeAt(int idx) {			// O(n)
 		
+		if(idx < 0 || idx >= size) {
+			System.out.print("Index Out Of Bound");
+			return null;
+		}
+		
+		Node temp = head;
+		
+		for(int i = 0; i < idx; i++) {
+			temp = temp.next;
+		}
+		
+		return temp;
 	}
 	
-	public void addLast(int data) {
+	public void addFirst(int data) {		// O(1)
+		
+		Node node = new Node();
+		node.data = data;
+		
+		if(size == 0) {
+			head = tail = node;
+		}
+		
+		else {
+			node.next = head;
+			head = node;
+		}
+		
+		size ++;
+	}
+	
+	public void addLast(int data) {		// O(1)
 		
 		Node node = new Node();
 		node.data = data;
@@ -43,31 +94,122 @@ public class Linked_List {
 		size++;
 	}
 	
-	public void addAt(int data, int idx) {
+	public void addAt(int data, int idx) {			// O(n)
 		
+		if(idx < 0 || idx > size) {
+			System.out.println("Index Out Of Bound");
+		}
+		
+		else if(idx == 0) {
+			addFirst(data);
+		}
+		
+		else if(idx == size) {
+			addLast(data);
+		}
+		
+		else {
+			Node m1 = getNodeAt(idx - 1);
+			Node n = m1.next;
+			
+			Node node = new Node();
+			node.data = data;
+			
+//			node.next = temp.next;
+//			temp.next = node;
+			
+			m1.next = node;
+			node.next = n;
+			
+			size ++;
+		}
 	}
 	
-	public int removeFirst() {
+	public int removeFirst() {		// O(1)
 		
+		if(size == 0) {
+			System.out.println("Index Out Of Bound");
+			return -1;
+		}
+		
+		else if(size == 1) {
+			Node temp = head;
+			head = tail = null;
+			size --;
+			
+			return temp.data;
+		}
+		
+		else {
+			Node temp = head;
+			head = head.next;
+			size --;
+			
+			return temp.data;
+		}
 	}
 	
-	public int removeLast() {
+	public int removeLast() {		// O(n)
 		
+		if(size == 0) {
+			System.out.println("Index Out Of Bound");
+			return -1;
+		}
+		
+		else if(size == 1) {
+			Node node = head;
+			head = tail = null;
+			size --;
+			
+			return node.data;
+		}
+		
+		else {
+			int temp = tail.data;
+			
+			Node sl = getNodeAt(size - 2);
+			tail = sl;
+			tail.next = null;
+			size --;
+			
+			return temp;
+		}
 	}
 	
-	public int removeAt(int idx) {
+	public int removeAt(int idx) {			// O(n)
 		
+		if(idx < 0 || idx >= size) {
+			System.out.println("Index Out Of Bound");
+			return -1;
+		}
+		
+		else if(idx == 0) {
+			return removeFirst();
+		}
+		
+		else if(idx == size - 1) {
+			return removeLast();
+		}
+		
+		else {
+			Node node = getNodeAt(idx - 1);
+			int temp = node.next.data;
+			node.next = node.next.next;
+			size --;
+			
+			return temp;
+		}
 	}
 	
-	public int size() {
+	public int size() {			// O(1)
 		return size;
 	}
 	
-	public boolean isEmpty() {
+	public boolean isEmpty() {		// O(1)
 		return size == 0;
 	}
 	
-	public void display() {
+	public void display() {			// O(n)
 		
 		for(Node node = head; node != null; node = node.next) {
 			System.out.print(node.data + " -> ");
