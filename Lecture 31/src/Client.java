@@ -38,12 +38,18 @@ public class Client {
 		list.addAt(2, 100);
 		list.display();
 		
-		System.out.println(list.removeAt(3));
+//		System.out.println(list.removeAt(3));
+//		list.display();
+//		
+//		while(!list.isEmpty()) {
+//			System.out.println(list.removeLast());
+//			list.display();
+//		}
+		
+		list.reverseDI();
 		list.display();
 		
-		while(!list.isEmpty()) {
-			System.out.println(list.removeLast());
-			list.display();
-		}
+		list.reversePI();
+		list.display();
 	}
 }

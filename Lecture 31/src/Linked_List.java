@@ -216,4 +216,50 @@ public class Linked_List {
 		}
 		System.out.println(".");
 	}
+	
+	public void reverseDI() {			// Reverse Data Iterative
+		
+		int left = 0;
+		int right = size - 1;
+		
+		while(left < right) {
+			
+			Node n1 = getNodeAt(left);
+			Node n2 = getNodeAt(right);
+			
+			int temp = n1.data;
+			n1.data = n2.data;
+			n2.data = temp;
+			
+			left ++;
+			right --;
+		}
+	}
+	
+	public void reversePI() {			// Reverse Pointer Iterative
+		
+		if(size == 1) {
+			return;
+		}
+		
+		Node a = head;
+		Node b = a.next;
+		Node c = b.next;
+		
+		while(b != null) {
+			
+			b.next = a;
+			a = b;
+			b = c;
+			
+			if(c != null) {
+				c = c.next;
+			}
+		}
+		
+		Node temp = head;
+		head = tail;
+		tail = temp;
+		tail.next = null;
+	}
 }
