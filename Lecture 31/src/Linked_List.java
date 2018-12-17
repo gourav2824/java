@@ -94,7 +94,7 @@ public class Linked_List {
 		size++;
 	}
 	
-	public void addAt(int data, int idx) {			// O(n)
+	public void addAt(int idx, int data) {			// O(n)
 		
 		if(idx < 0 || idx > size) {
 			System.out.println("Index Out Of Bound");
