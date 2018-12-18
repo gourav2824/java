@@ -355,4 +355,48 @@ public class Linked_List {
 		
 		return slow.data;
 	}
+	
+	public static Linked_List mergeTwoSortedLists(Linked_List l1, Linked_List l2) {
+		
+		Node p = l1.head;
+		Node q = l2.head;
+		
+		Linked_List list = new Linked_List();
+		
+		while(p != null && q != null) {
+			
+			if(p.data <= q.data) {
+				list.addLast(p.data);
+				p = p.next;
+			}
+			
+			else {
+				list.addLast(q.data);
+				q = q.next;
+			}
+		}
+		
+		if(p != null) {
+			
+			while(p != null) {
+				list.addLast(p.data);
+				p = p.next;
+			}
+		}
+		
+		if(q != null) {
+			
+			while(q != null) {
+				list.addLast(q.data);
+				q = q.next;
+			}
+		}
+		
+		return list;
+	}
+	
+	public static Linked_List mergeSort(Linked_List list) {
+		
+		
+	}
 }
