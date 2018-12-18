@@ -26,17 +26,17 @@ public class Client {
 //		list.removeAt(1);
 //		list.display();
 		
-		list.addFirst(10);
-		list.display();
-		list.addLast(20);
-		list.display();
-		list.addLast(30);
-		list.display();
-		list.addFirst(40);
-		list.display();
-		
-		list.addAt(2, 100);
-		list.display();
+//		list.addFirst(10);
+//		list.display();
+//		list.addLast(20);
+//		list.display();
+//		list.addLast(30);
+//		list.display();
+//		list.addFirst(40);
+//		list.display();
+//		
+//		list.addAt(2, 100);
+//		list.display();
 		
 //		System.out.println(list.removeAt(3));
 //		list.display();
@@ -46,18 +46,33 @@ public class Client {
 //			list.display();
 //		}
 		
-		list.reverseDI();
-		list.display();
+//		list.reverseDI();
+//		list.display();
+//		
+//		list.reversePI();
+//		list.display();
 		
-		list.reversePI();
-		list.display();
+//		list.addFirst(20);
+//		list.addFirst(30);
+//		list.removeAt(2);
+//		list.removeAt(2);
+//		list.display();
+//		
+//		System.out.println(list.IsPalindrome());
 		
-		list.addFirst(20);
-		list.addFirst(30);
-		list.removeAt(2);
-		list.removeAt(2);
-		list.display();
+		list.addLast(10);
+		list.addLast(20);
+		list.addLast(30);
+		list.addLast(40);
+		list.addLast(50);
+		list.addLast(60);
+		list.addLast(70);
 		
-		System.out.println(list.IsPalindrome());
+		list.display();
+//		list.Fold();
+//		list.display();
+		
+		System.out.println(list.mid());
+		System.out.println(list.KthFromLast(2));
 	}
 }
