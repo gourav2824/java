@@ -339,6 +339,20 @@ public class Linked_List {
 		return slow.data;
 	}
 	
+	public Node midNode() {
+		
+		Node slow = head;
+		Node fast = head;
+		
+		while(fast.next != null && fast.next.next != null) {
+			
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+		
+		return slow;
+	}
+	
 	public int KthFromLast(int k) {
 		
 		Node slow = head;
@@ -395,8 +409,36 @@ public class Linked_List {
 		return list;
 	}
 	
+	private static Linked_List breakList(Node left, Node right) {
+		
+		Linked_List list = new Linked_List();
+		list.head = left;
+		list.tail = right;
+		
+		return list;
+	}
+	
 	public static Linked_List mergeSort(Linked_List list) {
 		
+		if(list.head == list.tail) {
+			
+			return list;
+		}
 		
+		Node midNode = list.midNode();
+		Node midNext = midNode.next;
+		
+		Linked_List leftList = Linked_List.breakList(list.head, midNode);
+		Linked_List rightList = Linked_List.breakList(midNode.next, list.tail);
+		
+		midNode.next = null;
+		
+		leftList = mergeSort(leftList);
+		rightList = mergeSort(rightList);
+		
+		Linked_List SortedList = mergeTwoSortedLists(leftList, rightList);
+		midNode.next = midNext;
+		
+		return SortedList;
 	}
 }

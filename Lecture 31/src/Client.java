@@ -75,25 +75,39 @@ public class Client {
 //		System.out.println(list.mid());
 //		System.out.println(list.KthFromLast(2));
 		
-		Linked_List list1 = new Linked_List();
-		Linked_List list2 = new Linked_List();
+//		Linked_List list1 = new Linked_List();
+//		Linked_List list2 = new Linked_List();
+//		
+//		list1.addLast(5);
+//		list1.addLast(15);
+//		list1.addLast(25);
+//		list1.addLast(35);
+//		
+//		list2.addLast(10);
+//		list2.addLast(20);
+//		list2.addLast(30);
+//		list2.addLast(40);
+//		list2.addLast(50);
+//		list2.addLast(60);
+//		
+//		list1.display();
+//		list2.display();
+//		
+//		Linked_List newList = Linked_List.mergeTwoSortedLists(list1, list2);
+//		newList.display();
 		
-		list1.addLast(5);
-		list1.addLast(15);
-		list1.addLast(25);
-		list1.addLast(35);
+		list.addLast(15);
+		list.addLast(35);
+		list.addLast(20);
+		list.addLast(5);
+		list.addLast(8);
+		list.addLast(10);
+		list.addLast(100);
+		list.addLast(3);
 		
-		list2.addLast(10);
-		list2.addLast(20);
-		list2.addLast(30);
-		list2.addLast(40);
-		list2.addLast(50);
-		list2.addLast(60);
-		
-		list1.display();
-		list2.display();
-		
-		Linked_List newList = Linked_List.mergeTwoSortedLists(list1, list2);
-		newList.display();
+		list.display();
+		Linked_List SortedList = Linked_List.mergeSort(list);
+		SortedList.display();
+		list.display();
 	}
 }
