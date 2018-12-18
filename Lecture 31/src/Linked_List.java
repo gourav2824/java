@@ -262,4 +262,36 @@ public class Linked_List {
 		tail = temp;
 		tail.next = null;
 	}
+	
+	private Node IsPalindromeLeft;
+	
+	public boolean IsPalindrome() {
+		IsPalindromeLeft = head;
+		return IsPalindrome(head);
+	}
+	
+	public boolean IsPalindrome(Node right) {
+		
+		if(right == null) {
+			return true;
+		}
+		
+		boolean recRes = IsPalindrome(right.next);
+		
+		if(recRes == true) {
+			
+			if(IsPalindromeLeft.data == right.data) {
+				IsPalindromeLeft = IsPalindromeLeft.next;
+				return true;
+			}
+			
+			else {
+				return false;
+			}
+		}
+		
+		else {
+			return false;
+		}
+	}
 }

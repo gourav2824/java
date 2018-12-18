@@ -51,5 +51,13 @@ public class Client {
 		
 		list.reversePI();
 		list.display();
+		
+		list.addFirst(20);
+		list.addFirst(30);
+		list.removeAt(2);
+		list.removeAt(2);
+		list.display();
+		
+		System.out.println(list.IsPalindrome());
 	}
 }
