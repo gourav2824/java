@@ -96,18 +96,31 @@ public class Client {
 //		Linked_List newList = Linked_List.mergeTwoSortedLists(list1, list2);
 //		newList.display();
 		
-		list.addLast(15);
-		list.addLast(35);
-		list.addLast(20);
-		list.addLast(5);
-		list.addLast(8);
-		list.addLast(10);
-		list.addLast(100);
-		list.addLast(3);
+//		list.addLast(15);
+//		list.addLast(35);
+//		list.addLast(20);
+//		list.addLast(5);
+//		list.addLast(8);
+//		list.addLast(10);
+//		list.addLast(100);
+//		list.addLast(3);
+//		
+//		list.display();
+//		Linked_List SortedList = Linked_List.mergeSort(list);
+//		SortedList.display();
+//		list.display();
 		
-		list.display();
-		Linked_List SortedList = Linked_List.mergeSort(list);
-		SortedList.display();
-		list.display();
+		Linked_List list1 = new Linked_List();
+		
+		list1.addLast(10);
+		list1.addLast(20);
+		list1.addLast(30);
+		list1.addLast(40);
+		list1.addLast(50);
+		list1.addLast(60);
+		
+		list1.display();
+		list1.kReverse(3);
+		list1.display();
 	}
 }

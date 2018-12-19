@@ -77,6 +77,20 @@ public class Linked_List {
 
 		size++;
 	}
+	
+	private void addFirstNode(Node node) { // O(1)
+
+		if (size == 0) {
+			head = tail = node;
+		}
+
+		else {
+			node.next = head;
+			head = node;
+		}
+
+		size++;
+	}
 
 	public void addLast(int data) { // O(1)
 
@@ -146,6 +160,31 @@ public class Linked_List {
 			size--;
 
 			return temp.data;
+		}
+	}
+	
+	public Node removeFirstNode() { // O(1)
+
+		if (size == 0) {
+			System.out.println("Index Out Of Bound");
+			return null;
+		}
+
+		else if (size == 1) {
+			Node temp = head;
+			head = tail = null;
+			size--;
+
+			return temp;
+		}
+
+		else {
+			Node temp = head;
+			head = head.next;
+			temp.next = null;
+			size--;
+
+			return temp;
 		}
 	}
 
@@ -440,5 +479,34 @@ public class Linked_List {
 		midNode.next = midNext;
 		
 		return SortedList;
+	}
+	
+	public void kReverse(int k) {
+		
+		Linked_List prev = new Linked_List();
+		Linked_List curr = null;
+		
+		while(this.size != 0) {
+			
+			for(int i=0; i < k && this.size != 0; i++) {
+				prev.addFirstNode(this.removeFirstNode());
+			}
+			
+			if(curr == null) {
+				curr = prev;
+			}
+			
+			else {
+				curr.tail.next = prev.head;
+				curr.tail = prev.tail;
+				curr.size += prev.size;
+			}
+			
+			prev = new Linked_List();
+		}
+		
+		this.head = curr.head;
+		this.tail = curr.tail;
+		this.size = curr.size;
 	}
 }
