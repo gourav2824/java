@@ -112,15 +112,32 @@ public class Client {
 		
 		Linked_List list1 = new Linked_List();
 		
+//		list1.addLast(10);
+//		list1.addLast(20);
+//		list1.addLast(30);
+//		list1.addLast(40);
+//		list1.addLast(50);
+//		list1.addLast(60);
+//		
+//		list1.display();
+//		list1.kReverse(3);
+//		list1.display();
+		
+		list1.addLast(10);
+		list1.addLast(10);
 		list1.addLast(10);
 		list1.addLast(20);
+		list1.addLast(20);
+		list1.addLast(30);
+		list1.addLast(30);
 		list1.addLast(30);
 		list1.addLast(40);
+		list1.addLast(40);
 		list1.addLast(50);
-		list1.addLast(60);
+		list1.addLast(50);
 		
 		list1.display();
-		list1.kReverse(3);
+		list1.removeDuplicates();
 		list1.display();
 	}
 }

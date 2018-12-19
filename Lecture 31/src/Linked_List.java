@@ -107,6 +107,20 @@ public class Linked_List {
 		}
 		size++;
 	}
+	
+	public void addLastNode(Node node) { // O(1)
+
+		if (size == 0) {
+			head = tail = node;
+		}
+
+		else {
+			tail.next = node;
+			tail = node;
+		}
+		
+		size++;
+	}
 
 	public void addAt(int idx, int data) { // O(n)
 
@@ -508,5 +522,30 @@ public class Linked_List {
 		this.head = curr.head;
 		this.tail = curr.tail;
 		this.size = curr.size;
+	}
+	
+	public void removeDuplicates() {
+		
+		Linked_List list = new Linked_List();
+		
+		while(this.size != 0) {
+			
+			if(list.size == 0) {
+				list.addLastNode(this.removeFirstNode());
+			}
+			
+			else {
+				if(this.head.data == list.tail.data) {
+					this.removeFirstNode();
+				}
+				else {
+					list.addLastNode(this.removeFirstNode());
+				}
+			}
+		}
+		
+		this.head = list.head;
+		this.tail = list.tail;
+		this.size = list.size;
 	}
 }
