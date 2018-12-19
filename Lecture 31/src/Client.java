@@ -123,21 +123,34 @@ public class Client {
 //		list1.kReverse(3);
 //		list1.display();
 		
-		list1.addLast(10);
-		list1.addLast(10);
-		list1.addLast(10);
-		list1.addLast(20);
-		list1.addLast(20);
-		list1.addLast(30);
-		list1.addLast(30);
-		list1.addLast(30);
-		list1.addLast(40);
-		list1.addLast(40);
-		list1.addLast(50);
-		list1.addLast(50);
+//		list1.addLast(10);
+//		list1.addLast(10);
+//		list1.addLast(10);
+//		list1.addLast(20);
+//		list1.addLast(20);
+//		list1.addLast(30);
+//		list1.addLast(30);
+//		list1.addLast(30);
+//		list1.addLast(40);
+//		list1.addLast(40);
+//		list1.addLast(50);
+//		list1.addLast(50);
+//		
+//		list1.display();
+//		list1.removeDuplicates();
+//		list1.display();
+		
+		list1.addLast(4);
+		list1.addLast(3);
+		list1.addLast(1);
+		list1.addLast(2);
+		list1.addLast(6);
+		list1.addLast(5);
+		list1.addLast(7);
+		list1.addLast(8);
 		
 		list1.display();
-		list1.removeDuplicates();
+		list1.oddEven();
 		list1.display();
 	}
 }
