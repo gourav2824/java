@@ -39,4 +39,24 @@ public class Generic_Trees {
 			}
 		}
 	}
+	
+	public void display() {
+		display(root);
+	}
+	
+	private void display(Node node) {
+		
+		String str = node.data + " -> ";
+		
+		for(Node child : node.children) {
+			str += child.data + ", ";
+		}
+		
+		str += ".";
+		System.out.println(str);
+		
+		for(Node child : node.children) {
+			display(child);
+		}
+	}
 }
