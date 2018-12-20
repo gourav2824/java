@@ -151,4 +151,13 @@ public class Generic_Trees {
 
 		return new ArrayList<>();
 	}
+	
+	public void removeAllLeaves() {
+		removeAllLeaves(root);
+	}
+	
+	private void removeAllLeaves(Node node) {
+		
+		
+	}
 }
