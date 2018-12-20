@@ -158,6 +158,16 @@ public class Generic_Trees {
 	
 	private void removeAllLeaves(Node node) {
 		
-		
+		for(int i = node.children.size() - 1; i >= 0; i--) {
+			
+			Node child = node.children.get(i);
+			
+			if(child.children.size() > 0) {
+				removeAllLeaves(child);
+			}
+			else {
+				node.children.remove(child);
+			}
+		}
 	}
 }

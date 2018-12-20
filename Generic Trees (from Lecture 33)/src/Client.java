@@ -9,12 +9,16 @@ public class Client {
 		
 //		gt.display();
 		
-		System.out.println(gt.size());
-		System.out.println(gt.max());
-		System.out.println(gt.height());
-		System.out.println(gt.find(100));
+//		System.out.println(gt.size());
+//		System.out.println(gt.max());
+//		System.out.println(gt.height());
+//		System.out.println(gt.find(100));
+//		
+//		System.out.println(gt.nodeToRootPath(110));
 		
-		System.out.println(gt.nodeToRootPath(110));
-		
+		gt.display();
+		System.out.println("-----------------");
+		gt.removeAllLeaves();
+		gt.display();
 	}
 }
