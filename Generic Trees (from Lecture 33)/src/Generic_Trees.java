@@ -198,4 +198,13 @@ public class Generic_Trees {
 			mirrorTree(child);
 		}
 	}
+	
+	public void linearise() {
+		linearise(root);
+	}
+	
+	private void linearise(Node node) {
+		
+		for(Node child : node.children)
+	}
 }
