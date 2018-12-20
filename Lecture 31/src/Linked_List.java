@@ -584,4 +584,67 @@ public class Linked_List {
 			this.size = odd.size;
 		}
 	}
+	
+	public static int mergePoint(Linked_List list1, Linked_List list2) {		// Not Correct
+		
+		Node temp1 = list1.head;
+		Node temp2 = list2.head;
+		
+//		int diff = 
+		
+		while(temp1 != null && temp2 != null) {
+			
+			if(temp1.next == temp2.next) {
+				return temp1.next.data;
+			}
+			
+			else {
+				temp1 = temp1.next;
+				temp2 = temp2.next;
+			}
+		}
+		
+		return -1;
+	}
+	
+	private Node reverseDRLeft;
+	
+	public void ReverseDataRecursive() {
+		
+		reverseDRLeft = this.head;
+		ReverseDataRecursive(this.head, 0);
+	}
+	
+	private void ReverseDataRecursive(Node right, int floor) {
+		
+		if(right == null) {
+			return;
+		}
+		
+		ReverseDataRecursive(right.next, floor + 1);
+		
+		if(floor >= size / 2) {
+			
+			int temp = reverseDRLeft.data;
+			reverseDRLeft.data = right.data;
+			right.data = temp;
+			reverseDRLeft = reverseDRLeft.next;
+		}
+	}
+	
+	public void ReversePointerRecursive() {
+		
+		ReversePointerRecursive(head, head.next);
+	}
+	
+	private void ReversePointerRecursive(Node slow, Node fast) {
+		
+		if(fast == null) {
+			return;
+		}
+		
+		ReversePointerRecursive(slow.next, fast.next);
+		
+		fast.next = slow;
+	}
 }

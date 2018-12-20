@@ -110,8 +110,8 @@ public class Client {
 //		SortedList.display();
 //		list.display();
 		
-		Linked_List list1 = new Linked_List();
-		
+//		Linked_List list1 = new Linked_List();
+//		
 //		list1.addLast(10);
 //		list1.addLast(20);
 //		list1.addLast(30);
@@ -140,17 +140,33 @@ public class Client {
 //		list1.removeDuplicates();
 //		list1.display();
 		
-		list1.addLast(4);
-		list1.addLast(3);
-		list1.addLast(1);
-		list1.addLast(2);
-		list1.addLast(6);
-		list1.addLast(5);
-		list1.addLast(7);
-		list1.addLast(8);
+//		list1.addLast(4);
+//		list1.addLast(3);
+//		list1.addLast(1);
+//		list1.addLast(2);
+//		list1.addLast(6);
+//		list1.addLast(5);
+//		list1.addLast(7);
+//		list1.addLast(8);
+//		
+//		list1.display();
+//		list1.oddEven();
+//		list1.display();
+		
+//		Linked_List list2 = new Linked_List();
+		
+		Linked_List list1 = new Linked_List();
+		
+		list1.addLast(10);
+		list1.addLast(20);
+		list1.addLast(30);
+		list1.addLast(40);
+		list1.addLast(50);
+		list1.addLast(60);
 		
 		list1.display();
-		list1.oddEven();
+//		list1.ReverseDataRecursive();
+		list1.ReversePointerRecursive();
 		list1.display();
 	}
 }
