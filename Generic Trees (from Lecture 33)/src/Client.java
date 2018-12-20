@@ -16,9 +16,14 @@ public class Client {
 //		
 //		System.out.println(gt.nodeToRootPath(110));
 		
-		gt.display();
-		System.out.println("-----------------");
-		gt.removeAllLeaves();
+//		gt.display();
+//		System.out.println("-----------------");
+//		gt.removeAllLeaves();
+//		gt.display();
+		
+//		gt.display();
+//		System.out.println("-----------------");
+		gt.mirrorTree();
 		gt.display();
 	}
 }

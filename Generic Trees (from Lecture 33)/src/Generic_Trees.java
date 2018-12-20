@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 public class Generic_Trees {
@@ -168,6 +169,33 @@ public class Generic_Trees {
 			else {
 				node.children.remove(child);
 			}
+		}
+	}
+	
+	public void mirrorTree() {
+		mirrorTree(root);
+	}
+	
+	private void mirrorTree(Node node) {
+		
+//		Collections.reverse(node.children);
+		
+		int left = 0;
+		int right = node.children.size() - 1;
+		
+		while(left < right) {
+			
+			Node leftNode = node.children.get(left);
+			Node rightNode = node.children.get(right);
+			node.children.set(left, rightNode);
+			node.children.set(right, leftNode);
+			
+			left++;
+			right--;
+		}
+		
+		for(Node child : node.children) {
+			mirrorTree(child);
 		}
 	}
 }
