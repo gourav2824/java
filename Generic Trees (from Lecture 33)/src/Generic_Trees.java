@@ -86,9 +86,9 @@ public class Generic_Trees {
 		}
 		
 		for(Node child : node.children) {
-			int data = max(child);
-			if(max < data) {
-				max = data;
+			int cmax = max(child);
+			if(max < cmax) {
+				max = cmax;
 			}
 		}
 		
@@ -114,10 +114,21 @@ public class Generic_Trees {
 	}
 	
 	public boolean find(int data) {
-		
+		return find(root, data);
 	}
 	
 	private boolean find(Node node, int data) {
 		
+		if(node.data == data) {
+			return true;
+		}
+		
+		for(Node child : node.children) {
+			if(find(child, data) == true) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 }
