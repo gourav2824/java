@@ -305,6 +305,6 @@ public class Generic_Trees {
 	}
 	
 	public boolean isSymmetric() {
-		
+		return Generic_Trees.areMirrorImages(this, this);
 	}
 }
