@@ -29,7 +29,13 @@ public class Client {
 //		gt.linearise();
 //		gt.display();
 		
-		gt.linearise2();
-		gt.display();
+//		gt.linearise2();
+//		gt.display();
+		
+		int[] arr2 = {10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 110, -1, 120, -1, -1, 90, -1, -1, 40, -1, -1};
+		Generic_Trees gt1 = new Generic_Trees(arr);
+		Generic_Trees gt2 = new Generic_Trees(arr2);
+		System.out.println(Generic_Trees.areSimilarShaped(gt1, gt2));
+		
 	}
 }

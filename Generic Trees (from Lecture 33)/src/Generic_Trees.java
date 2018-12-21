@@ -252,4 +252,32 @@ public class Generic_Trees {
 		
 		return lastNodeTail;
 	}
+	
+	public static boolean areSimilarShaped(Generic_Trees gt1, Generic_Trees gt2) {			// are Isomorphic
+		return areSimilarShaped(gt1.root, gt2.root);
+	}
+	
+	private static boolean areSimilarShaped(Node node1, Node node2) {
+		
+		if(node1.children.size() != node2.children.size()) {
+			return false;
+		}
+		
+		for(int i = 0; i < node1.children.size() ; i++) {
+			
+			if(areSimilarShaped(node1.children.get(i), node2.children.get(i)) == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static boolean areMirrorImages(Generic_Trees gt1, Generic_Trees gt2) {
+		return areMirrorImages(gt1.root, gt2.root);
+	}
+	
+	private static boolean areMirrorImages(Node node1, Node node2) {
+		
+		
+	}
 }
