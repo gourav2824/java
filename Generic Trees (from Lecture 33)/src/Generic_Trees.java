@@ -269,6 +269,7 @@ public class Generic_Trees {
 				return false;
 			}
 		}
+		
 		return true;
 	}
 	
@@ -278,6 +279,32 @@ public class Generic_Trees {
 	
 	private static boolean areMirrorImages(Node node1, Node node2) {
 		
+		if(node1.children.size() != node2.children.size()) {
+			return false;
+		}
+		
+		int left = 0;
+		int right = node1.children.size() - 1;
+		
+		while(left < node1.children.size()) {
+			
+			Node leftChild = node1.children.get(left);
+			Node rightChild = node2.children.get(right);
+			
+			boolean areChildMirrorImages = areMirrorImages(leftChild, rightChild);
+			
+			if(areChildMirrorImages == false) {
+				return false;
+			}
+			
+			left ++;
+			right --;
+		}
+		
+		return true;
+	}
+	
+	public boolean isSymmetric() {
 		
 	}
 }

@@ -36,6 +36,5 @@ public class Client {
 		Generic_Trees gt1 = new Generic_Trees(arr);
 		Generic_Trees gt2 = new Generic_Trees(arr2);
 		System.out.println(Generic_Trees.areSimilarShaped(gt1, gt2));
-		
 	}
 }
