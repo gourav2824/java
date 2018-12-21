@@ -205,6 +205,27 @@ public class Generic_Trees {
 	
 	private void linearise(Node node) {
 		
-		for(Node child : node.children)
+		for(Node child : node.children) {
+			linearise(child);
+		}
+		
+		for(int i = node.children.size() - 1; i > 0; i--) {
+			
+			Node lr = node.children.remove(i);
+			Node sl = node.children.get(i - 1);
+			Node slchild = getTail(sl);
+			slchild.children.add(lr);
+		}
+	}
+	
+	private Node getTail(Node node) {
+		
+		Node tail = node;
+		while(tail.children.size() != 0) {
+			
+			tail = tail.children.get(0);
+		}
+		
+		return tail;
 	}
 }

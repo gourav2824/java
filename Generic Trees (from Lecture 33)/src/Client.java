@@ -23,7 +23,10 @@ public class Client {
 		
 //		gt.display();
 //		System.out.println("-----------------");
-		gt.mirrorTree();
+//		gt.mirrorTree();
+//		gt.display();
+		
+		gt.linearise();
 		gt.display();
 	}
 }
