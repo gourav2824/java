@@ -407,4 +407,46 @@ public class Generic_Trees {
 			MultiSolver3(data, child);
 		}
 	}
+	
+	public void MultiSolver4(int data) {
+		
+		predecessor = null;
+		successor = null;
+		ms4Flag = 0;
+		
+		MultiSolver4(data, root);
+		
+		System.out.println("Predecessor = " + predecessor);
+		System.out.println("Successor = " + successor);
+	}
+	
+	private int ms4Flag;
+	
+	private void MultiSolver4(int data, Node node) {
+		
+		if(node.data == data) {
+			ms4Flag++;
+		}
+		
+		if(ms4Flag == 0) {
+			predecessor = node.data;
+		}
+		
+		else if(ms4Flag == 1) {
+			ms4Flag++;
+		}
+		
+		else if(ms4Flag == 2) {
+			successor = node.data;
+			ms4Flag++;
+		}
+		
+		else {
+			return;
+		}
+		
+		for(Node child : node.children) {
+			MultiSolver4(data, child);
+		}
+	}
 }
