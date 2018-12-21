@@ -228,4 +228,28 @@ public class Generic_Trees {
 		
 		return tail;
 	}
+	
+	public void linearise2() {
+		linearise(root);
+	}
+	
+	private Node linearise2(Node node) {
+		
+		if(node.children.size() == 0) {
+			return node;
+		}
+		
+		Node lastNodeTail = linearise2(node.children.get(node.children.size() - 1));
+		
+		while(node.children.size() > 1) {
+			
+			Node lastRemoved = node.children.remove(node.children.size() - 1);
+			Node secondLast = node.children.get(node.children.size() - 1);
+			
+			Node secondLastTail = linearise2(secondLast);
+			secondLastTail.children.add(lastRemoved);
+		}
+		
+		return lastNodeTail;
+	}
 }

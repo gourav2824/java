@@ -26,7 +26,10 @@ public class Client {
 //		gt.mirrorTree();
 //		gt.display();
 		
-		gt.linearise();
+//		gt.linearise();
+//		gt.display();
+		
+		gt.linearise2();
 		gt.display();
 	}
 }
