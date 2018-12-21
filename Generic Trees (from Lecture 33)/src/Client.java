@@ -37,6 +37,8 @@ public class Client {
 //		Generic_Trees gt2 = new Generic_Trees(arr2);
 //		System.out.println(Generic_Trees.areSimilarShaped(gt1, gt2));
 		
-		gt.MultiSolver();
+//		gt.MultiSolver();
+		gt.MultiSolver2(65);
+		gt.MultiSolver3(90);
 	}
 }

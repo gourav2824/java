@@ -313,6 +313,7 @@ public class Generic_Trees {
 	private int msMax = Integer.MIN_VALUE;
 	private int msHeight = 0;
 	
+	// Size, Min, Max, Height
 	public void MultiSolver() {
 		
 		msSize = 0;
@@ -337,6 +338,73 @@ public class Generic_Trees {
 		
 		for(Node child : node.children) {
 			MultiSolver(child, depth + 1);
+		}
+	}
+	
+	// floor, ceil
+	public void MultiSolver2(int data) {
+		
+		floor = null;
+		ceil = null;
+		
+		MultiSolver2(data, root);
+		
+		System.out.println("Floor = " + floor);
+		System.out.println("Ceil = " + ceil);
+	}
+	
+	private Integer floor;
+	private Integer ceil;
+	
+	private void MultiSolver2(int data, Node node) {
+		
+		if(node.data < data) {
+			floor = floor == null ? node.data : Math.max(floor, node.data);
+		}
+		
+		if(node.data > data) {
+			ceil = ceil == null ? node.data : Math.min(ceil, node.data);
+		}
+		
+		for(Node child : node.children) {
+			MultiSolver2(data, child);
+		}
+	}
+	
+	// predecessor, successor
+	public void MultiSolver3(int data) {
+		
+		predecessor = null;
+		successor = null;
+		prev = null;
+		curr = null;
+		
+		MultiSolver3(data, root);
+		
+		System.out.println("Predecessor = " + predecessor);
+		System.out.println("Successor = " + successor);
+	}
+	
+	private Integer predecessor;
+	private Integer successor;
+	private Integer prev;
+	private Integer curr;
+	
+	private void MultiSolver3(int data, Node node) {
+		
+		prev = curr;
+		curr = node.data;
+		
+		if(curr == data) {
+			predecessor = prev;
+		}
+		
+		if(prev != null && prev == data) {
+			successor = curr;
+		}
+		
+		for(Node child : node.children) {
+			MultiSolver3(data, child);
 		}
 	}
 }
