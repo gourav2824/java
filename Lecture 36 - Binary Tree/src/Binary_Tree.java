@@ -66,4 +66,103 @@ public class Binary_Tree {
 		display(node.left);
 		display(node.right);
 	}
+	
+	public int size() {
+		return size(root);
+	}
+	
+	private int size(Node node) {
+		
+		if(node == null) {
+			return 0;
+		}
+		
+		int size = 0;
+		size = size(node.left) + size(node.right) + 1;
+		
+		return size;
+	}
+	
+	public int max() {
+		return max(root);
+	}
+	
+	private int max(Node node) {
+		
+		if(node == null) {
+			return Integer.MIN_VALUE;
+		}
+		
+		int leftMax = max(node.left);
+		int rightMax = max(node.right);
+		int childMax = Math.max(leftMax, rightMax);
+		
+		return Math.max(node.data, childMax);
+	}
+	
+	public int min() {
+		return min(root);
+	}
+	
+	private int min(Node node) {
+		
+		if(node == null) {
+			return Integer.MAX_VALUE;
+		}
+		
+		int leftMax = min(node.left);
+		int rightMax = min(node.right);
+		int childMax = Math.min(leftMax, rightMax);
+		
+		return Math.min(node.data, childMax);
+	}
+	
+	public int height() {
+		return height(root);
+	}
+	
+	private int height(Node node) {
+		
+		if(node == null) {
+			return 0;
+		}
+		
+		int leftHeight = height(node.left);
+		int rightHeight = height(node.right);
+		
+		return Math.max(leftHeight, rightHeight) + 1;
+	}
+	
+	public boolean find(int data) {
+		return find(root, data);
+	}
+	
+	public boolean find(Node node, int data) {
+		
+		if(node == null) {
+			return false;
+		}
+		
+		if(node.data == data) {
+			return true;
+		}
+		
+		boolean filc = find(node.left, data);
+		if(filc == true) {
+			return true;
+		}
+		
+		boolean firc = find(node.right, data);
+		if(firc == true) {
+			return true;
+		}
+		
+		return false;
+		
+//		boolean found = false;
+//		found = found || node.data == data;
+//		found = found || find(node.left, data);
+//		found = found || find(node.right, data);
+//		return found;
+	}
 }
