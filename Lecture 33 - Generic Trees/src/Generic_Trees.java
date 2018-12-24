@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class Generic_Trees {
@@ -447,6 +448,75 @@ public class Generic_Trees {
 		
 		for(Node child : node.children) {
 			MultiSolver4(data, child);
+		}
+	}
+	
+	public void LevelOrder() {				// Breadth First Traversal
+		
+		LinkedList<Node> queue = new LinkedList<>();
+		queue.addLast(root);
+		
+		while(queue.size() > 0) {
+			
+			Node temp = queue.removeFirst();
+			System.out.print(temp.data + " ");
+			
+			for(Node child : temp.children) {
+				queue.addLast(child);
+			}
+		}
+		
+		System.out.println(".");
+	}
+	
+	public void LevelOrderLineWise() {
+		
+		LinkedList<Node> queue = new LinkedList<>();
+		queue.addLast(root);
+		queue.addLast(null);
+		
+		while(queue.size() > 0) {
+			
+			Node lastRemoved = queue.removeFirst();
+			
+			if(lastRemoved == null) {
+				System.out.println();
+				
+				if(queue.size() > 0) {
+					queue.addLast(null);
+				}
+				continue;
+			}
+			
+			System.out.print(lastRemoved.data + " ");
+			for(Node child : lastRemoved.children) {
+				queue.addLast(child);
+			}
+		}
+	}
+	
+	public void LevelOrderLineWiseWith2Lists() {
+		
+		LinkedList<Node> currLevel = new LinkedList<>();
+		LinkedList<Node> nextLevel = new LinkedList<>();
+		
+		currLevel.addLast(root);
+		
+		while(currLevel.size() > 0) {
+			
+			Node temp = currLevel.removeFirst();
+			
+			System.out.print(temp.data + " ");
+				
+			for(Node child : temp.children) {
+				nextLevel.addLast(child);
+			}
+			
+			if(currLevel.size() == 0) {
+				System.out.println();
+				currLevel = nextLevel;
+				nextLevel = new LinkedList<>();
+			}
 		}
 	}
 }

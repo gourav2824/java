@@ -40,6 +40,10 @@ public class Client {
 //		gt.MultiSolver();
 //		gt.MultiSolver2(65);
 //		gt.MultiSolver3(90);
-		gt.MultiSolver4(90);
+//		gt.MultiSolver4(90);
+		
+//		gt.LevelOrder();
+//		gt.LevelOrderLineWise();
+		gt.LevelOrderLineWiseWith2Lists();
 	}
 }
