@@ -45,6 +45,7 @@ public class Client {
 //		gt.LevelOrder();
 //		gt.LevelOrderLineWise();
 //		gt.LevelOrderLineWiseWith2Lists();
-		gt.LevelOrderLineWiseWith2Counters();
+//		gt.LevelOrderLineWiseWith2Counters();
+		gt.LevelOrderZigZag();
 	}
 }

@@ -552,5 +552,34 @@ public class Generic_Trees {
 	
 	public void LevelOrderZigZag() {
 		
+		LinkedList<Node> currLevelQueue = new LinkedList<>();
+		LinkedList<Node> nextLevelStack = new LinkedList<>();
+		
+		currLevelQueue.addLast(root);
+		int level = 1;		// Odd means Left to Right
+		
+		while(currLevelQueue.size() > 0) {
+			
+			Node removed = currLevelQueue.removeFirst();
+			System.out.print(removed.data + " ");
+			
+			if(level % 2 == 1) {		// Left to Right
+				for(int i = 0; i < removed.children.size(); i++) {
+					nextLevelStack.addFirst(removed.children.get(i));
+				}
+			}
+			else {						// Right to Left
+				for(int i = removed.children.size() - 1; i >= 0; i--) {
+					nextLevelStack.addFirst(removed.children.get(i));
+				}
+			}
+			
+			if(currLevelQueue.size() == 0) {
+				currLevelQueue = nextLevelStack;
+				nextLevelStack = new LinkedList<>();
+				System.out.println();
+				level ++;
+			}
+		}
 	}
 }
