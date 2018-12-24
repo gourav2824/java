@@ -519,4 +519,38 @@ public class Generic_Trees {
 			}
 		}
 	}
+	
+	public void LevelOrderLineWiseWith2Counters() {
+		
+		int currLevel = 0;
+		int nextLevel = 0;
+		
+		LinkedList<Node> queue = new LinkedList<>();
+		
+		queue.addLast(root);
+		currLevel = 1;
+		
+		while(currLevel > 0 || nextLevel > 0) {
+			
+			Node temp = queue.removeFirst();
+			currLevel --;
+			
+			System.out.print(temp.data + " ");
+				
+			for(Node child : temp.children) {
+				queue.addLast(child);
+				nextLevel ++;
+			}
+			
+			if(currLevel == 0) {
+				System.out.println();
+				currLevel = nextLevel;
+				nextLevel = 0;
+			}
+		}
+	}
+	
+	public void LevelOrderZigZag() {
+		
+	}
 }
