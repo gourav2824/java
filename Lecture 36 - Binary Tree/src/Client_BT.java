@@ -24,9 +24,14 @@ public class Client_BT {
 		
 //		System.out.println(bt.RootToNodePath(37));
 		
-		int[] preOrder = {50, 25, 12, 37, 75, 62, 87};
+//		int[] preOrder = {50, 25, 12, 37, 75, 62, 87};
+		int[] postOrder = {12, 37, 25, 62, 87, 75, 50};
 		int[] inOrder = {12, 25, 37, 50, 62, 75, 87};
-		Binary_Tree btpi = new Binary_Tree(preOrder, inOrder);
-		btpi.display();
+		
+//		Binary_Tree btprein = new Binary_Tree(preOrder, inOrder);
+//		btpi.display();
+		
+		Binary_Tree btpostin = new Binary_Tree(postOrder, inOrder, true);
+		btpostin.display();
 	}
 }

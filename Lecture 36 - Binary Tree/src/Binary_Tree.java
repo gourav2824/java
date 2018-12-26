@@ -268,6 +268,7 @@ public class Binary_Tree {
 		
 		Node node = new Node();
 		node.data = pre[psi];
+		size ++;
 		
 		int idx = -1;
 		for(int i = isi; i <= iei; i++) {
@@ -284,5 +285,32 @@ public class Binary_Tree {
 		return node;
 	}
 	
+	public Binary_Tree(int[] postOrder, int[] inOrder, boolean dummyVariable) {
+		root = construct1(postOrder, 0, postOrder.length - 1, inOrder, 0, inOrder.length - 1);
+	}
 	
+	private Node construct1(int[] post, int psi, int pei, int[] in, int isi, int iei) {
+		
+		if(isi > iei || psi > pei) {
+			return null;
+		}
+		
+		Node node = new Node();
+		node.data = post[pei];
+		size ++;
+		
+		int idx = -1;
+		for(int i = isi; i <= iei; i++) {
+			if(in[i] == node.data) {
+				idx = i;
+				break;
+			}
+		}
+		
+		int lhs = idx - isi;
+		node.left = construct1(post, psi + 0, psi + lhs - 1, in, isi, idx - 1);
+		node.right = construct1(post, psi + lhs, pei - 1, in, idx + 1, iei);
+		
+		return node;
+	}
 }
