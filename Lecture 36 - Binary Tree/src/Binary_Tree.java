@@ -435,7 +435,62 @@ public class Binary_Tree {
 		}
 	}
 	
-	public void isBalanced() {
+	public boolean isBalanced() {
+		return isBalanced(root);
+	}
+	
+	private boolean isBalanced(Node node) {				// O(n^2)
 		
+		if(node == null) {
+			return true;
+		}
+		
+		int leftHeight = height(node.left);
+		int rightHeight = height(node.right);
+		int delta = Math.abs(rightHeight - leftHeight);
+		
+		if(delta > 1) {
+			return false;
+		}
+		
+		boolean isLeftBalanced = isBalanced(node.left);
+		if(isLeftBalanced == false) {
+			return false;
+		}
+		
+		boolean isRightBalanced = isBalanced(node.right);
+		if(isRightBalanced == false) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private class BalPair {
+		int height;
+		boolean isBalanced;
+	}
+	
+	public boolean isBalancedInOn() {
+		return isBalancedInOn(root).isBalanced;
+	}
+	
+	private BalPair isBalancedInOn(Node node) {
+		
+		if(node == null) {
+			BalPair bp = new BalPair();
+			bp.height = 0;
+			bp.isBalanced = true;
+			return bp;
+		}
+		
+		BalPair leftPair = isBalancedInOn(node.left);
+		BalPair rightPair = isBalancedInOn(node.right);
+		
+		BalPair myPair = new BalPair();
+		myPair.height = Math.max(leftPair.height, rightPair.height) + 1;
+		myPair.isBalanced = leftPair.isBalanced && rightPair.isBalanced && (Math.abs(leftPair.height - rightPair.height) <= 1);
+		
+		return myPair;
 	}
 }
