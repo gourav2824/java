@@ -240,4 +240,47 @@ public class Binary_Tree {
 		
 		return new ArrayList<>();
 	}
+	
+	private void printkDown(Node node, int k) {
+		
+		if(k < 0 || node == null) {
+			return;
+		}
+		
+		if(k == 0) {
+			System.out.print(node.data + " ");
+			return;
+		}
+		
+		printkDown(node.left, k - 1);
+		printkDown(node.right, k - 1);
+	}
+	
+	public Binary_Tree(int[] preOrder, int[] inOrder) {
+		root = construct(preOrder, 0, preOrder.length - 1, inOrder, 0, inOrder.length - 1);
+	}
+	
+	private Node construct(int[] pre, int psi, int pei, int[] in, int isi, int iei) {
+		
+		if(isi >  iei && psi > pei) {
+			return null;
+		}
+		
+		Node node = new Node();
+		node.data = pre[psi];
+		
+		int idx = -1;
+		for(int i = 0; i <= iei; i++) {
+			if(in[i] == node.data) {
+				idx = i;
+				break;
+			}
+		}
+		
+		int lhs = idx - isi;
+		node.left = construct(pre, psi + 1, psi + lhs, in, isi, idx - 1);
+		node.right = construct(pre, psi + lhs + 1, pei, in, idx + 1, iei);
+		
+		return node;
+	}
 }

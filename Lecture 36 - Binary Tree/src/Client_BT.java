@@ -22,6 +22,11 @@ public class Client_BT {
 //		bt.removeLeaf();
 //		bt.display();
 		
-		System.out.println(bt.RootToNodePath(37));
+//		System.out.println(bt.RootToNodePath(37));
+		
+		int[] preOrder = {50, 25, 12, 37, 75, 62, 87};
+		int[] inOrder = {12, 25, 37, 50, 62, 75, 87};
+		Binary_Tree btpi = new Binary_Tree(preOrder, inOrder);
+		btpi.display();
 	}
 }
