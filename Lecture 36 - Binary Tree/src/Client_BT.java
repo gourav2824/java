@@ -17,9 +17,11 @@ public class Client_BT {
 //		System.out.println(bt.find(62));
 		
 //		bt1.printSingleChild();
-		bt.display();
-		System.out.println("------------------");
-		bt.removeLeaf();
-		bt.display();
+//		bt.display();
+//		System.out.println("------------------");
+//		bt.removeLeaf();
+//		bt.display();
+		
+		System.out.println(bt.RootToNodePath(37));
 	}
 }
