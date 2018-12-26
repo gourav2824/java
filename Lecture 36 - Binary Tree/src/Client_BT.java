@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 
 public class Client_BT {
 
@@ -24,14 +25,51 @@ public class Client_BT {
 		
 //		System.out.println(bt.RootToNodePath(37));
 		
-//		int[] preOrder = {50, 25, 12, 37, 75, 62, 87};
+		int[] preOrder = {50, 25, 12, 37, 75, 62, 87};
 		int[] postOrder = {12, 37, 25, 62, 87, 75, 50};
 		int[] inOrder = {12, 25, 37, 50, 62, 75, 87};
 		
 //		Binary_Tree btprein = new Binary_Tree(preOrder, inOrder);
 //		btpi.display();
 		
-		Binary_Tree btpostin = new Binary_Tree(postOrder, inOrder, true);
-		btpostin.display();
+//		Binary_Tree btpostin = new Binary_Tree(postOrder, inOrder, true);
+//		btpostin.display();
+		
+		printBinaries(15);
+	}
+	
+	private static class Pair {
+		int data;
+		String binary;
+		
+		Pair(int data, String binary){
+			this.data = data;
+			this.binary = binary;
+		}
+	}
+	
+	public static void printBinaries(int n) {
+		
+		LinkedList<Pair> queue = new LinkedList<>();
+		
+		Pair start = new Pair(1, "1");
+		queue.addLast(start);
+		
+		while(queue.size() > 0) {
+			
+			Pair removepair = queue.removeFirst();
+			System.out.println(removepair.data + " = " + removepair.binary);
+			
+			Pair leftPair = new Pair(removepair.data * 2, removepair.binary + "0");
+			Pair rightPair = new Pair(removepair.data * 2 + 1, removepair.binary + "1");
+			
+			if(leftPair.data <= n) {
+				queue.addLast(leftPair);
+			}
+			
+			if(rightPair.data <= n) {
+				queue.addLast(rightPair);
+			}
+		}
 	}
 }
