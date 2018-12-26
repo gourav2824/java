@@ -270,7 +270,7 @@ public class Binary_Tree {
 		node.data = pre[psi];
 		
 		int idx = -1;
-		for(int i = 0; i <= iei; i++) {
+		for(int i = isi; i <= iei; i++) {
 			if(in[i] == node.data) {
 				idx = i;
 				break;
@@ -283,4 +283,6 @@ public class Binary_Tree {
 		
 		return node;
 	}
+	
+	
 }
