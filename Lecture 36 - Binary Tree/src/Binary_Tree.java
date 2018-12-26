@@ -313,4 +313,129 @@ public class Binary_Tree {
 		
 		return node;
 	}
+	
+	private class Pair {
+		Node node;
+		int workCounter = 0;
+		
+		public Pair(Node node, int wc) {
+			this.node = node;
+			this.workCounter = wc;
+		}
+	}
+	
+	public void preOrderIteratively() {
+		
+		Stack<Pair> stack = new Stack<>();
+		
+		Pair rootPair = new Pair(root, 0);
+		stack.push(rootPair);
+		
+		while(stack.size() > 0) {
+			
+			Pair top = stack.peek();
+			
+			if(top.workCounter == 0) {
+				System.out.print(top.node.data + " ");
+			}
+			
+			else if(top.workCounter == 1) {
+				if(top.node.left != null) {
+					Pair leftPair = new Pair(top.node.left, 0);
+					stack.push(leftPair);
+				}
+			}
+			
+			else if(top.workCounter == 2) {
+				if(top.node.right != null) {
+					Pair rightPair = new Pair(top.node.right, 0);
+					stack.push(rightPair);
+				}
+			}
+			
+			else {
+				stack.pop();
+			}
+			
+			top.workCounter ++;
+		}
+	}
+	
+	public void inOrderIteratively() {
+		
+		Stack<Pair> stack = new Stack<>();
+		
+		Pair rootPair = new Pair(root, 0);
+		stack.push(rootPair);
+		
+		while(stack.size() > 0) {
+			
+			Pair top = stack.peek();
+			
+			if(top.workCounter == 0) {
+				if(top.node.left != null) {
+					Pair leftPair = new Pair(top.node.left, 0);
+					stack.push(leftPair);
+				}
+			}
+			
+			else if(top.workCounter == 1) {
+				System.out.print(top.node.data + " ");
+			}
+			
+			else if(top.workCounter == 2) {
+				if(top.node.right != null) {
+					Pair rightPair = new Pair(top.node.right, 0);
+					stack.push(rightPair);
+				}
+			}
+			
+			else {
+				stack.pop();
+			}
+			
+			top.workCounter ++;
+		}
+	}
+	
+	public void postOrderIteratively() {
+		
+		Stack<Pair> stack = new Stack<>();
+		
+		Pair rootPair = new Pair(root, 0);
+		stack.push(rootPair);
+		
+		while(stack.size() > 0) {
+			
+			Pair top = stack.peek();
+			
+			if(top.workCounter == 0) {
+				if(top.node.left != null) {
+					Pair leftPair = new Pair(top.node.left, 0);
+					stack.push(leftPair);
+				}
+			}
+			
+			else if(top.workCounter == 1) {
+				if(top.node.right != null) {
+					Pair rightPair = new Pair(top.node.right, 0);
+					stack.push(rightPair);
+				}
+			}
+			
+			else if(top.workCounter == 2) {
+				System.out.print(top.node.data + " ");
+			}
+			
+			else {
+				stack.pop();
+			}
+			
+			top.workCounter ++;
+		}
+	}
+	
+	public void isBalanced() {
+		
+	}
 }

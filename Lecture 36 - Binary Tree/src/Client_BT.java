@@ -29,13 +29,21 @@ public class Client_BT {
 		int[] postOrder = {12, 37, 25, 62, 87, 75, 50};
 		int[] inOrder = {12, 25, 37, 50, 62, 75, 87};
 		
-//		Binary_Tree btprein = new Binary_Tree(preOrder, inOrder);
+		Binary_Tree btprein = new Binary_Tree(preOrder, inOrder);
 //		btpi.display();
 		
-//		Binary_Tree btpostin = new Binary_Tree(postOrder, inOrder, true);
+		Binary_Tree btpostin = new Binary_Tree(postOrder, inOrder, true);
 //		btpostin.display();
 		
-		printBinaries(15);
+//		bt1.display();
+//		printBinaries(15);
+		btpostin.preOrderIteratively();
+		System.out.println();
+		btprein.postOrderIteratively();
+		System.out.println();
+		btpostin.inOrderIteratively();
+		System.out.println();
+		btprein.inOrderIteratively();
 	}
 	
 	private static class Pair {
