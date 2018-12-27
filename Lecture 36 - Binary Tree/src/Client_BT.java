@@ -51,6 +51,8 @@ public class Client_BT {
 //		System.out.println(bt1.isBalancedInOn());
 		
 		System.out.println(bt1.isBST());
+		System.out.println(bt1.isBST2());
+		
 	}
 
 	private static class Pair {

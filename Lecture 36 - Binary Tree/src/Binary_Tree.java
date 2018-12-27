@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
+import javax.sql.rowset.BaseRowSet;
+
 public class Binary_Tree {
 	
 	private class Node {
@@ -529,8 +531,30 @@ public class Binary_Tree {
 		boolean isBST;
 	}
 	
-	public boolean isBSTinOn() {
+	public boolean isBST2() {				// O(n)
+		return isBST2(root).isBST;
+	}
+	
+	private BSTPair isBST2(Node node) {
 		
+		if(node == null) {
+			BSTPair basePair = new BSTPair();
+			basePair.isBST = true;
+			basePair.max = Integer.MIN_VALUE;
+			basePair.min = Integer.MAX_VALUE;
+			return basePair;
+		}
 		
+		BSTPair leftPair = isBST2(node.left);
+		BSTPair rightPair = isBST2(node.right);
+		
+		BSTPair nodePair = new BSTPair();
+		
+		nodePair.max = Math.max(node.data, Math.max(leftPair.max, rightPair.max));
+		nodePair.min = Math.min(node.data, Math.min(leftPair.min, rightPair.min));
+		
+		nodePair.isBST = leftPair.isBST && rightPair.isBST && node.data > leftPair.max && node.data < rightPair.min;
+		
+		return nodePair;
 	}
 }
