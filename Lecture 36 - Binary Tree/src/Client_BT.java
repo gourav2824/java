@@ -55,9 +55,9 @@ public class Client_BT {
 //		System.out.println(bt1.isBST());
 //		System.out.println(bt1.isBST2());
 		
-		bt.largestBST();
-		bt1.largestBST();
-		bt2.largestBST();
+//		bt.largestBST();
+//		bt1.largestBST();
+//		bt2.largestBST();
 	}
 
 	private static class Pair {
