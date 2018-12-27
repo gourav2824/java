@@ -10,7 +10,5 @@ public class Client_BST {
 		System.out.println(bst.max());
 		System.out.println(bst.min());
 		System.out.println(bst.find(62));
-		
 	}
-
 }
