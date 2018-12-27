@@ -529,6 +529,8 @@ public class Binary_Tree {
 		int max;
 		int min;
 		boolean isBST;
+		Node largestBSTRoot;
+		int largestBSTSize;
 	}
 	
 	public boolean isBST2() {				// O(n)
@@ -554,6 +556,56 @@ public class Binary_Tree {
 		nodePair.min = Math.min(node.data, Math.min(leftPair.min, rightPair.min));
 		
 		nodePair.isBST = leftPair.isBST && rightPair.isBST && node.data > leftPair.max && node.data < rightPair.min;
+		
+		return nodePair;
+	}
+	
+	
+	public void largestBST() {
+		BSTPair bp = largestBST(root);
+		System.out.println("Largest BST Root = " + bp.largestBSTRoot.data + " & " + "Largest BST Size = " + bp.largestBSTSize);
+	}
+	
+	private BSTPair largestBST(Node node) {
+		
+		if(node == null) {
+			BSTPair basePair = new BSTPair();
+			basePair.isBST = true;
+			basePair.max = Integer.MIN_VALUE;
+			basePair.min = Integer.MAX_VALUE;
+			basePair.largestBSTRoot = null;
+			basePair.largestBSTSize = 0;
+			return basePair;
+		}
+		
+		BSTPair leftPair = largestBST(node.left);
+		BSTPair rightPair = largestBST(node.right);
+		
+		BSTPair nodePair = new BSTPair();
+		
+		nodePair.max = Math.max(node.data, Math.max(leftPair.max, rightPair.max));
+		nodePair.min = Math.min(node.data, Math.min(leftPair.min, rightPair.min));
+		
+		nodePair.isBST = leftPair.isBST && rightPair.isBST && node.data > leftPair.max && node.data < rightPair.min;
+		
+		if(nodePair.isBST == true) {
+			nodePair.largestBSTRoot = node;
+			nodePair.largestBSTSize = leftPair.largestBSTSize + rightPair.largestBSTSize + 1;
+		}
+		
+		else {
+			
+			if(leftPair.largestBSTSize > rightPair.largestBSTSize) {
+				
+				nodePair.largestBSTSize = leftPair.largestBSTSize;
+				nodePair.largestBSTRoot = leftPair.largestBSTRoot;
+			}
+			
+			else {
+				nodePair.largestBSTSize = rightPair.largestBSTSize;
+				nodePair.largestBSTRoot = rightPair.largestBSTRoot;
+			}
+		}
 		
 		return nodePair;
 	}

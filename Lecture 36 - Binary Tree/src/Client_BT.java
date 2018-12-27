@@ -6,9 +6,11 @@ public class Client_BT {
 
 		int[] arr = { 50, 25, 12, -1, 37, 30, -1, 40, -1, -1, -1, 75, 62, 60, -1, 70, -1, -1, 87, -1, -1, -1 };
 		int[] arr1 = { 50, 25, 12, 10, -1, 20, -1, -1, -1, 75, 62, 60, -1, -1, 87, -1, -1, -1 };
+		int[] arr2 = {50, 25, 12, -1, 37, 30, 24, -1, 32, -1, -1, 40, 38, -1, 42, -1, -1, -1, -1, 75, 62, -1, 87, -1, -1, -1};
 
 		Binary_Tree bt = new Binary_Tree(arr);
 		Binary_Tree bt1 = new Binary_Tree(arr1);
+		Binary_Tree bt2 = new Binary_Tree(arr2);
 
 //		bt.display();
 //		System.out.println(bt.size());
@@ -25,14 +27,14 @@ public class Client_BT {
 
 //		System.out.println(bt.RootToNodePath(37));
 
-		int[] preOrder = { 50, 25, 12, 37, 75, 62, 87 };
-		int[] postOrder = { 12, 37, 25, 62, 87, 75, 50 };
-		int[] inOrder = { 12, 25, 37, 50, 62, 75, 87 };
+//		int[] preOrder = { 50, 25, 12, 37, 75, 62, 87 };
+//		int[] postOrder = { 12, 37, 25, 62, 87, 75, 50 };
+//		int[] inOrder = { 12, 25, 37, 50, 62, 75, 87 };
 
-		Binary_Tree btprein = new Binary_Tree(preOrder, inOrder);
+//		Binary_Tree btprein = new Binary_Tree(preOrder, inOrder);
 //		btpi.display();
 
-		Binary_Tree btpostin = new Binary_Tree(postOrder, inOrder, true);
+//		Binary_Tree btpostin = new Binary_Tree(postOrder, inOrder, true);
 //		btpostin.display();
 
 //		bt1.display();
@@ -50,9 +52,12 @@ public class Client_BT {
 //		System.out.println(bt1.isBalanced());
 //		System.out.println(bt1.isBalancedInOn());
 		
-		System.out.println(bt1.isBST());
-		System.out.println(bt1.isBST2());
+//		System.out.println(bt1.isBST());
+//		System.out.println(bt1.isBST2());
 		
+		bt.largestBST();
+		bt1.largestBST();
+		bt2.largestBST();
 	}
 
 	private static class Pair {
