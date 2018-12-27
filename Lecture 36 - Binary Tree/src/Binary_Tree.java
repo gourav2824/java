@@ -493,4 +493,33 @@ public class Binary_Tree {
 		
 		return myPair;
 	}
+	
+	public boolean isBST() {
+		return isBST(root);
+	}
+	
+	private boolean isBST(Node node) {
+		
+		if(node.left == null || node.right == null) {
+			return true;
+		}
+		
+		if(isBST(node.left) == false) {
+			return false;
+		}
+		
+		if(isBST(node.right) == false) {
+			return false;
+		}
+		
+		if(node.left.data > node.data || node.right.data < node.data) {
+			return false;
+		}
+		
+		if(node.data < max(node.left) || node.data > min(node.right)) {
+			return false;
+		}
+		
+		return true;
+	}
 }

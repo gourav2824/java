@@ -47,8 +47,10 @@ public class Client_BT {
 //		System.out.println();
 //		btprein.inOrderIteratively();
 		
-		System.out.println(bt1.isBalanced());
-		System.out.println(bt1.isBalancedInOn());
+//		System.out.println(bt1.isBalanced());
+//		System.out.println(bt1.isBalancedInOn());
+		
+		System.out.println(bt1.isBST());
 	}
 
 	private static class Pair {
