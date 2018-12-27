@@ -609,4 +609,12 @@ public class Binary_Tree {
 		
 		return nodePair;
 	}
+	
+	public void Transform() {
+		Transform(root);
+	}
+	
+	private void Transform(Node node) {
+		
+	}
 }
