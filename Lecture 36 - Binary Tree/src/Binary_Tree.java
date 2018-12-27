@@ -500,7 +500,7 @@ public class Binary_Tree {
 	
 	private boolean isBST(Node node) {
 		
-		if(node.left == null || node.right == null) {
+		if(node == null) {
 			return true;
 		}
 		
@@ -512,14 +512,25 @@ public class Binary_Tree {
 			return false;
 		}
 		
-		if(node.left.data > node.data || node.right.data < node.data) {
+		if(node.left != null && node.data < max(node.left)) {
 			return false;
 		}
 		
-		if(node.data < max(node.left) || node.data > min(node.right)) {
+		if(node.right != null && node.data > min(node.right)) {
 			return false;
 		}
 		
 		return true;
+	}
+	
+	private class BSTPair {
+		int max;
+		int min;
+		boolean isBST;
+	}
+	
+	public boolean isBSTinOn() {
+		
+		
 	}
 }
