@@ -101,117 +101,127 @@ public class BST {
 		else
 			return find(node.right, data);
 	}
-	
+
 	public void printInRange(int lo, int hi) {
 		printInRange(root, lo, hi);
 	}
-	
+
 	private void printInRange(Node node, int lo, int hi) {
-		
-		if(node == null) {
+
+		if (node == null) {
 			return;
 		}
-		
-		if(node.data >= lo && node.data <= hi) {
+
+		if (node.data >= lo && node.data <= hi) {
 			printInRange(node.left, lo, hi);
 			System.out.print(node.data + " ");
 			printInRange(node.right, lo, hi);
 		}
-		
-		if(node.data < lo) {
+
+		if (node.data < lo) {
 			printInRange(node.right, lo, hi);
 		}
-		
-		if(node.data > hi) {
+
+		if (node.data > hi) {
 			printInRange(node.left, lo, hi);
 		}
 	}
-	
+
 	private int rsum;
-	
+
 	public void replaceWithSumOfLargerNodes() {
 		rsum = 0;
 		replaceWithSumOfLargerNodes(root);
 	}
-	
-	private void replaceWithSumOfLargerNodes(Node node) {			// Reverse Inorder
-		
-		if(node == null) {
+
+	private void replaceWithSumOfLargerNodes(Node node) { // Reverse Inorder
+
+		if (node == null) {
 			return;
 		}
-		
+
 		replaceWithSumOfLargerNodes(node.right);
-		
+
 		int originalNodeData = node.data;
 		node.data = rsum;
 		rsum += originalNodeData;
-		
+
 		replaceWithSumOfLargerNodes(node.left);
 	}
-	
+
 	public void add(int data) {
 		root = add(root, data);
 	}
-	
+
 	private Node add(Node node, int data) {
-		
-		if(node == null) {
+
+		if (node == null) {
 			node = new Node();
 			node.data = data;
 			return node;
 		}
-		
-		if(node.data > data) {
+
+		if (node.data > data) {
 			node.left = add(node.left, data);
 		}
-		
-		else if(node.data < data) {
+
+		else if (node.data < data) {
 			node.right = add(node.right, data);
 		}
-		
+
 		return node;
 	}
-	
+
 	public void remove(int data) {
 		root = remove(root, data);
 	}
-	
+
 	private Node remove(Node node, int data) {
-		
-		if(node == null) {
+
+		if (node == null) {
 			return null;
 		}
-		
-		if(node.data > data) {
+
+		if (node.data > data) {
 			node.left = remove(node.left, data);
-		}
-		
-		else if(node.data < data) {
+		} else if (node.data < data) {
 			node.right = remove(node.right, data);
-		}
-		
-		else {
-			
-			if(node.left != null && node.right != null) {
-				
+		} else {
+			if (node.left != null && node.right != null) {
 				int leftMax = max(node.left);
 				node.data = leftMax;
 				node.left = remove(node.left, leftMax);
-			}
-			
-			else if(node.left != null) {
+			} else if (node.left != null) {
 				node = node.left;
-			}
-			
-			else if(node.right != null) {
+			} else if (node.right != null) {
 				node = node.right;
-			}
-			
-			else {
+			} else {
 				return null;
 			}
 		}
-		
 		return node;
+	}
+	
+	public int LCA(int lo, int hi) {
+		return LCA(root, lo, hi);
+	}
+	
+	private int LCA(Node node, int lo, int hi) {
+		
+		if(node == null) {
+			return 0;
+		}
+		
+		if(node.data < lo) {
+			return LCA(node.right, lo, hi);
+		}
+		
+		else if(node.data > hi) {
+			return LCA(node.left, lo, hi);
+		}
+		
+		else {
+			return node.data;
+		}
 	}
 }

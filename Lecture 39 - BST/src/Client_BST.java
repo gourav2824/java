@@ -24,24 +24,26 @@ public class Client_BST {
 //		bst1.remove(70);
 //		bst1.display();
 		
-		bst.add(30);
-		bst.add(40);
-		bst.add(60);
-		bst.add(70);
+//		bst.add(30);
+//		bst.add(40);
+//		bst.add(60);
+//		bst.add(70);
+//		
+//		bst.display();
+//		System.out.println("-----------------");
+//		
+//		bst.remove(30);
+//		bst.display();
+//		System.out.println("-----------------");
+//		
+//		bst.remove(37);
+//		bst.display();
+//		System.out.println("-----------------");
+//		
+//		bst.remove(75);
+//		bst.display();
+//		System.out.println("-----------------");
 		
-		bst.display();
-		System.out.println("-----------------");
-		
-		bst.remove(30);
-		bst.display();
-		System.out.println("-----------------");
-		
-		bst.remove(37);
-		bst.display();
-		System.out.println("-----------------");
-		
-		bst.remove(75);
-		bst.display();
-		System.out.println("-----------------");
+		System.out.println(bst.LCA(12, 87));
 	}
 }
