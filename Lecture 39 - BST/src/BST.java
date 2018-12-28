@@ -127,12 +127,25 @@ public class BST {
 		}
 	}
 	
+	private int rsum;
+	
 	public void replaceWithSumOfLargerNodes() {
+		rsum = 0;
 		replaceWithSumOfLargerNodes(root);
 	}
 	
 	private void replaceWithSumOfLargerNodes(Node node) {
 		
+		if(node == null) {
+			return;
+		}
 		
+		replaceWithSumOfLargerNodes(node.right);
+		
+		int originalNodeData = node.data;
+		node.data = rsum;
+		rsum += originalNodeData;
+		
+		replaceWithSumOfLargerNodes(node.left);
 	}
 }
