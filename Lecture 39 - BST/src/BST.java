@@ -134,7 +134,7 @@ public class BST {
 		replaceWithSumOfLargerNodes(root);
 	}
 	
-	private void replaceWithSumOfLargerNodes(Node node) {
+	private void replaceWithSumOfLargerNodes(Node node) {			// Reverse Inorder
 		
 		if(node == null) {
 			return;
@@ -147,5 +147,71 @@ public class BST {
 		rsum += originalNodeData;
 		
 		replaceWithSumOfLargerNodes(node.left);
+	}
+	
+	public void add(int data) {
+		root = add(root, data);
+	}
+	
+	private Node add(Node node, int data) {
+		
+		if(node == null) {
+			node = new Node();
+			node.data = data;
+			return node;
+		}
+		
+		if(node.data > data) {
+			node.left = add(node.left, data);
+		}
+		
+		else if(node.data < data) {
+			node.right = add(node.right, data);
+		}
+		
+		return node;
+	}
+	
+	public void remove(int data) {
+		root = remove(root, data);
+	}
+	
+	private Node remove(Node node, int data) {
+		
+		if(node == null) {
+			return null;
+		}
+		
+		if(node.data > data) {
+			node.left = remove(node.left, data);
+		}
+		
+		else if(node.data < data) {
+			node.right = remove(node.right, data);
+		}
+		
+		else {
+			
+			if(node.left != null && node.right != null) {
+				
+				int leftMax = max(node.left);
+				node.data = leftMax;
+				node.left = remove(node.left, leftMax);
+			}
+			
+			else if(node.left != null) {
+				node = node.left;
+			}
+			
+			else if(node.right != null) {
+				node = node.right;
+			}
+			
+			else {
+				return null;
+			}
+		}
+		
+		return node;
 	}
 }

@@ -15,7 +15,33 @@ public class Client_BST {
 		
 //		bst.printInRange(26, 80);
 		
-		bst1.replaceWithSumOfLargerNodes();
-		bst1.display();
+//		bst1.replaceWithSumOfLargerNodes();
+//		bst1.display();
+		
+//		bst1.add(25);
+//		bst1.display();
+		
+//		bst1.remove(70);
+//		bst1.display();
+		
+		bst.add(30);
+		bst.add(40);
+		bst.add(60);
+		bst.add(70);
+		
+		bst.display();
+		System.out.println("-----------------");
+		
+		bst.remove(30);
+		bst.display();
+		System.out.println("-----------------");
+		
+		bst.remove(37);
+		bst.display();
+		System.out.println("-----------------");
+		
+		bst.remove(75);
+		bst.display();
+		System.out.println("-----------------");
 	}
 }
