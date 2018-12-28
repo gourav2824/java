@@ -224,4 +224,27 @@ public class BST {
 			return node.data;
 		}
 	}
+	
+	public void printTargetSumPair(int target) {
+		printTargetSumPair(root, target);
+	}
+	
+	private void printTargetSumPair(Node node, int target) {
+		
+		if(node == null) {
+			return;
+		}
+		
+		printTargetSumPair(node.left, target);
+		
+		int complement = target - node.data;
+		
+		if(node.data < complement) {
+			if(find(complement) == true) {
+				System.out.println(node.data + " " + complement);
+			}
+		}
+		
+		printTargetSumPair(node.right, target);
+	}
 }

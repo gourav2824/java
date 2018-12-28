@@ -44,6 +44,7 @@ public class Client_BST {
 //		bst.display();
 //		System.out.println("-----------------");
 		
-		System.out.println(bst.LCA(12, 87));
+//		System.out.println(bst.LCA(12, 87));
+		bst.printTargetSumPair(99);
 	}
 }
