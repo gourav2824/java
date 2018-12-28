@@ -18,10 +18,13 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
 <fullyQualifiedTypeName name="Generic_Trees"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="Binary_Tree"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
 <fullyQualifiedTypeName name="java.util.Stack"/>
 <fullyQualifiedTypeName name="Binary_Tree.BalPair"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="javax.sql.rowset.BaseRowSet"/>
+<fullyQualifiedTypeName name="Binary_Tree.BSTPair"/>
+<fullyQualifiedTypeName name="Binary_Tree"/>
+<fullyQualifiedTypeName name="BST"/>
 </qualifiedTypeNameHistroy>

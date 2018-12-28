@@ -101,4 +101,38 @@ public class BST {
 		else
 			return find(node.right, data);
 	}
+	
+	public void printInRange(int lo, int hi) {
+		printInRange(root, lo, hi);
+	}
+	
+	private void printInRange(Node node, int lo, int hi) {
+		
+		if(node == null) {
+			return;
+		}
+		
+		if(node.data >= lo && node.data <= hi) {
+			printInRange(node.left, lo, hi);
+			System.out.print(node.data + " ");
+			printInRange(node.right, lo, hi);
+		}
+		
+		if(node.data < lo) {
+			printInRange(node.right, lo, hi);
+		}
+		
+		if(node.data > hi) {
+			printInRange(node.left, lo, hi);
+		}
+	}
+	
+	public void replaceWithSumOfLargerNodes() {
+		replaceWithSumOfLargerNodes(root);
+	}
+	
+	private void replaceWithSumOfLargerNodes(Node node) {
+		
+		
+	}
 }

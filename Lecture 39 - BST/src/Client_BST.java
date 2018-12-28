@@ -7,8 +7,10 @@ public class Client_BST {
 		
 		BST bst = new BST(sa);
 		
-		System.out.println(bst.max());
-		System.out.println(bst.min());
-		System.out.println(bst.find(62));
+//		System.out.println(bst.max());
+//		System.out.println(bst.min());
+//		System.out.println(bst.find(62));
+		
+		bst.printInRange(26, 80);
 	}
 }
