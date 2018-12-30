@@ -210,16 +210,16 @@ public class AVL {
 			node = rightRotate(node);
 		}
 		
-		else if(node.balance > 1 && node.left.balance < 0) {		// LR
+		else if(node.balance > 1 && node.left.balance < 0) {			// LR
 			node.left = leftRotate(node.left);
 			node = rightRotate(node);
 		}
 		
-		else if(node.balance < -1 && node.right.balance < 0) {		// RR
+		else if(node.balance < -1 && node.right.balance < 0) {			// RR
 			node = leftRotate(node);
 		}
 		
-		else if(node.balance < -1 && node.right.balance >= 0) {		// RL
+		else if(node.balance < -1 && node.right.balance >= 0) {			// RL
 			node.right = rightRotate(node.right);
 			node = leftRotate(node);
 		}
