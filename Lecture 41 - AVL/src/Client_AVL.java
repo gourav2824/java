@@ -10,5 +10,14 @@ public class Client_AVL {
 		AVL avl1 = new AVL(sa1);
 		
 		avl.display();
+		
+		avl.add(10);
+		avl.add(5);
+		System.out.println("---------------");
+		avl.display();
+		
+		avl.add(11);
+		System.out.println("---------------");
+		avl.display();
 	}
 }

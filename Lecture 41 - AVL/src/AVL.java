@@ -66,4 +66,76 @@ public class AVL {
 		display(node.left);
 		display(node.right);
 	}
+	
+	public void add(int data) {
+		root = add(root, data);
+	}
+
+	private Node add(Node node, int data) {
+
+		if (node == null) {
+			node = new Node();
+			node.data = data;
+			node.height = 1;
+			return node;
+		}
+
+		if (node.data > data) {
+			node.left = add(node.left, data);
+		}
+
+		else if (node.data < data) {
+			node.right = add(node.right, data);
+		}
+		
+		setHeightAndBalance(node);
+		
+		if(node.balance > 1 && data < node.left.data) {				// LL
+			node = rightRotate(node);
+		}
+		
+		else if(node.balance > 1 && data > node.left.data) {		// LR
+			node.left = leftRotate(node.left);
+			node = rightRotate(node);
+		}
+		
+		else if(node.balance < -1 && data > node.right.data) {		// RR
+			node = leftRotate(node);
+		}
+		
+		else if(node.balance < -1 && data < node.right.data) {		// RL
+			node.right = rightRotate(node.right);
+			node = leftRotate(node);
+		}
+
+		return node;
+	}
+	
+	private Node rightRotate(Node z) {
+		
+		Node y = z.left;
+		Node t3 = y.right;
+		
+		y.right = z;
+		z.left = t3;
+		
+		setHeightAndBalance(z);
+		setHeightAndBalance(y);
+		
+		return y;
+	}
+	
+	private Node leftRotate(Node z) {
+		
+		Node y = z.right;
+		Node t3 = y.left;
+		
+		y.left = z;
+		z.right = t3;
+		
+		setHeightAndBalance(z);
+		setHeightAndBalance(y);
+		
+		return y;
+	}
 }
