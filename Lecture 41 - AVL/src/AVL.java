@@ -67,6 +67,32 @@ public class AVL {
 		display(node.right);
 	}
 	
+	public int max() {
+		return max(root);
+	}
+
+	private int max(Node node) {
+
+		if (node.right == null) {
+			return node.data;
+		}
+
+		return max(node.right);
+	}
+
+	public int min() {
+		return min(root);
+	}
+
+	private int min(Node node) {
+
+		if (node.left == null) {
+			return node.data;
+		}
+
+		return min(node.left);
+	}
+	
 	public void add(int data) {
 		root = add(root, data);
 	}
@@ -137,5 +163,67 @@ public class AVL {
 		setHeightAndBalance(y);
 		
 		return y;
+	}
+	
+	public void remove(int data) {
+		root = remove(root, data);
+	}
+
+	private Node remove(Node node, int data) {
+
+		if (node == null) {
+			return null;
+		}
+
+		if (node.data > data) {
+			node.left = remove(node.left, data);
+		}
+		
+		else if (node.data < data) {
+			node.right = remove(node.right, data);
+		}
+		
+		else {
+			
+			if (node.left != null && node.right != null) {
+				int leftMax = max(node.left);
+				node.data = leftMax;
+				node.left = remove(node.left, leftMax);
+			}
+			
+			else if (node.left != null) {
+				node = node.left;
+			}
+			
+			else if (node.right != null) {
+				node = node.right;
+			}
+			
+			else {
+				return null;
+			}
+		}
+		
+		setHeightAndBalance(node);
+		
+		if(node.balance > 1 && node.left.balance >= 0) {				// LL
+			node = rightRotate(node);
+		}
+		
+		else if(node.balance > 1 && node.left.balance < 0) {		// LR
+			node.left = leftRotate(node.left);
+			node = rightRotate(node);
+		}
+		
+		else if(node.balance < -1 && node.right.balance < 0) {		// RR
+			node = leftRotate(node);
+		}
+		
+		else if(node.balance < -1 && node.right.balance >= 0) {		// RL
+			node.right = rightRotate(node.right);
+			node = leftRotate(node);
+		}
+		
+		return node;
 	}
 }

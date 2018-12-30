@@ -9,15 +9,37 @@ public class Client_AVL {
 		AVL avl = new AVL(sa);
 		AVL avl1 = new AVL(sa1);
 		
-		avl.display();
+//		avl.display();
+		
+//		avl.add(10);
+//		avl.add(5);
+//		System.out.println("---------------");
+//		avl.display();
+//		
+//		avl.add(11);
+//		System.out.println("---------------");
+//		avl.display();
 		
 		avl.add(10);
-		avl.add(5);
-		System.out.println("---------------");
+		avl.add(20);
+		avl.add(30);
+		avl.add(40);
+		avl.add(60);
+		avl.add(70);
+		avl.add(80);
+		avl.add(90);
+		
+		System.out.println("------------------------");
 		avl.display();
 		
-		avl.add(11);
-		System.out.println("---------------");
+		avl.remove(30);
+		avl.remove(40);
+		avl.remove(37);
+		System.out.println("------------------------");
+		avl.display();
+		
+		avl.remove(10);
+		System.out.println("------------------------");
 		avl.display();
 	}
 }
