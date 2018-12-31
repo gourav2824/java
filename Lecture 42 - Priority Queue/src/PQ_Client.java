@@ -57,7 +57,7 @@ public class PQ_Client {
 		System.out.println();
 	}
 	
-	public static void printKLargestBetter(int[] arr, int k) {
+	public static void printKLargestBetter(int[] arr, int k) {		// Space = O(k) & Time = nlogk
 		
 		PriorityQueue<Integer> pq = new PriorityQueue<>();
 		
