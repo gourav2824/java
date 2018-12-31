@@ -3,8 +3,8 @@ import java.util.PriorityQueue;
 
 public class Median_PQ {
 	
-	private PriorityQueue<Integer> pq1 = new PriorityQueue<>(Collections.reverseOrder());
-	private PriorityQueue<Integer> pq2 = new PriorityQueue<>();
+	private PriorityQueue<Integer> min = new PriorityQueue<>(Collections.reverseOrder());
+	private PriorityQueue<Integer> max = new PriorityQueue<>();
 	
 	private int size = 0;
 	
@@ -12,34 +12,34 @@ public class Median_PQ {
 	public void add(int data) {
 		
 		if(size == 0 || size == 1) {
-			pq1.add(data);
+			min.add(data);
 			size ++;
 		}
 		
 		else {
 			
-			if(data > pq2.peek()) {
-				pq2.add(data);
+			if(data > max.peek()) {
+				max.add(data);
 			}
 			
-			else if(data < pq1.peek()) {
-				pq1.add(data);
+			else if(data < min.peek()) {
+				min.add(data);
 			}
 			
 			else {
-				pq1.add(data);
+				min.add(data);
 			}
 			
 			size ++;
 		}
 		
-		if(Math.abs(pq1.size() - pq2.size()) > 1) {
+		if(Math.abs(min.size() - max.size()) > 1) {
 			
-			if(pq1.size() > pq2.size()) {
-				pq2.add(pq1.remove());
+			if(min.size() > max.size()) {
+				max.add(min.remove());
 			}
 			else {
-				pq1.add(pq2.remove());
+				min.add(max.remove());
 			}
 		}
 	}
@@ -47,12 +47,12 @@ public class Median_PQ {
 	// O(log n)
 	public int remove() {
 		size --;
-		return pq1.size() >= pq2.size() ? pq1.remove() : pq2.remove();
+		return min.size() >= max.size() ? min.remove() : max.remove();
 	}
 	
 	// O(1)
 	public int peek() {
-		return pq1.size() >= pq2.size() ? pq1.peek() : pq2.peek();
+		return min.size() >= max.size() ? min.peek() : max.peek();
 	}
 	
 	public int size() {
