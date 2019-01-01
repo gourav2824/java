@@ -86,7 +86,7 @@ public class PQ_Client {
 //		heapSort(arr);
 //		heapSort(arr1);
 		
-//		int[] arr2 = {9, 3, 4, 1, 6, 2, 5, 7, 8};
+		int[] arr2 = {9, 3, 4, 1, 6, 2, 5, 7, 8};
 //		
 //		Heap heap = new Heap();
 //		for(int val : arr2) {
@@ -107,15 +107,13 @@ public class PQ_Client {
 //		}
 //		
 //		System.out.println(heap.isEmpty());
+		
+		heapSort(arr2);
 	}
 	
 	public static void heapSort(int [] arr) {
 		
-		Heap heap = new Heap();
-		
-		for(int val : arr) {
-			heap.add(val);
-		}
+		Heap heap = new Heap(arr);
 		
 		while(heap.size() > 0) {
 			System.out.print(heap.remove() + " ");
