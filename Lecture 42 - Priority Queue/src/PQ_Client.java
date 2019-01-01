@@ -7,11 +7,11 @@ public class PQ_Client {
 
 	public static void main(String[] args) {
 		
-//		int[] arr = {9, 3, 4, 1, 6, 2, 7, 8};
+		int[] arr = {9, 3, 4, 1, 6, 2, 7, 8};
 //		printKLargest(arr, 3);
 //		printKLargestBetter(arr, 3);
 //		
-//		int[] arr1 = {30, 10, 40, 20, 50, 70, 80, 60, 110, 90, 100, 120};
+		int[] arr1 = {30, 10, 40, 20, 50, 70, 80, 60, 110, 90, 100, 120};
 //		sortNearlySortedArray(arr1, 2);
 		
 //		Median_PQ mpq = new Median_PQ();
@@ -74,14 +74,32 @@ public class PQ_Client {
 //		lists.add(l2);
 //		lists.add(l3);
 		
-		ArrayList<Integer> l0 = new ArrayList<>(Arrays.asList(10, 20, 30, 40));
-		ArrayList<Integer> l1 = new ArrayList<>(Arrays.asList(22, 27, 28, 35, 55));
-		ArrayList<Integer> l2 = new ArrayList<>(Arrays.asList(11, 32, 41));
-		ArrayList<Integer> l3 = new ArrayList<>(Arrays.asList(5, 12, 26, 38));
+//		ArrayList<Integer> l0 = new ArrayList<>(Arrays.asList(10, 20, 30, 40));
+//		ArrayList<Integer> l1 = new ArrayList<>(Arrays.asList(22, 27, 28, 35, 55));
+//		ArrayList<Integer> l2 = new ArrayList<>(Arrays.asList(11, 32, 41));
+//		ArrayList<Integer> l3 = new ArrayList<>(Arrays.asList(5, 12, 26, 38));
+//		
+//		ArrayList<ArrayList<Integer>> lists = new ArrayList<>(Arrays.asList(l0, l1, l2, l3));
+//		
+//		mergeKSortedLists(lists);
 		
-		ArrayList<ArrayList<Integer>> lists = new ArrayList<>(Arrays.asList(l0, l1, l2, l3));
+		heapSort(arr);
+		heapSort(arr1);
+	}
+	
+	public static void heapSort(int [] arr) {
 		
-		mergeKSortedLists(lists);
+		Heap heap = new Heap();
+		
+		for(int val : arr) {
+			heap.add(val);
+		}
+		
+		while(heap.size() > 0) {
+			System.out.print(heap.remove() + " ");
+		}
+		
+		System.out.println();
 	}
 
 	public static void printKLargest(int[] arr, int k) { // Space = O(n) & Time = (n + k) logn
