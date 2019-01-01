@@ -108,12 +108,13 @@ public class PQ_Client {
 //		
 //		System.out.println(heap.isEmpty());
 		
-		heapSort(arr2);
+		heapSort(arr2, false);
+		heapSort(arr2, true);
 	}
 	
-	public static void heapSort(int [] arr) {
+	public static void heapSort(int [] arr, boolean max) {
 		
-		Heap heap = new Heap(arr);
+		Heap heap = new Heap(arr, max);
 		
 		while(heap.size() > 0) {
 			System.out.print(heap.remove() + " ");
