@@ -86,27 +86,27 @@ public class PQ_Client {
 //		heapSort(arr);
 //		heapSort(arr1);
 		
-		int[] arr2 = {9, 3, 4, 1, 6, 2, 5, 7, 8};
-		
-		Heap heap = new Heap();
-		for(int val : arr2) {
-			heap.add(val);
-		}
-		
-		heap.display();
-		System.out.println(heap.size());
-		System.out.println(heap.remove());
-		System.out.println(heap.size());
-		System.out.println(heap.peek());
-		System.out.println(heap.size());
-		heap.display();
-		System.out.println(heap.isEmpty());
-		
-		while(heap.size() > 0) {
-			heap.remove();
-		}
-		
-		System.out.println(heap.isEmpty());
+//		int[] arr2 = {9, 3, 4, 1, 6, 2, 5, 7, 8};
+//		
+//		Heap heap = new Heap();
+//		for(int val : arr2) {
+//			heap.add(val);
+//		}
+//		
+//		heap.display();
+//		System.out.println(heap.size());
+//		System.out.println(heap.remove());
+//		System.out.println(heap.size());
+//		System.out.println(heap.peek());
+//		System.out.println(heap.size());
+//		heap.display();
+//		System.out.println(heap.isEmpty());
+//		
+//		while(heap.size() > 0) {
+//			heap.remove();
+//		}
+//		
+//		System.out.println(heap.isEmpty());
 	}
 	
 	public static void heapSort(int [] arr) {
