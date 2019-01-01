@@ -7,11 +7,11 @@ public class PQ_Client {
 
 	public static void main(String[] args) {
 		
-		int[] arr = {9, 3, 4, 1, 6, 2, 7, 8};
+//		int[] arr = {9, 3, 4, 1, 6, 2, 7, 8};
 //		printKLargest(arr, 3);
 //		printKLargestBetter(arr, 3);
 //		
-		int[] arr1 = {30, 10, 40, 20, 50, 70, 80, 60, 110, 90, 100, 120};
+//		int[] arr1 = {30, 10, 40, 20, 50, 70, 80, 60, 110, 90, 100, 120};
 //		sortNearlySortedArray(arr1, 2);
 		
 //		Median_PQ mpq = new Median_PQ();
@@ -83,8 +83,30 @@ public class PQ_Client {
 //		
 //		mergeKSortedLists(lists);
 		
-		heapSort(arr);
-		heapSort(arr1);
+//		heapSort(arr);
+//		heapSort(arr1);
+		
+		int[] arr2 = {9, 3, 4, 1, 6, 2, 5, 7, 8};
+		
+		Heap heap = new Heap();
+		for(int val : arr2) {
+			heap.add(val);
+		}
+		
+		heap.display();
+		System.out.println(heap.size());
+		System.out.println(heap.remove());
+		System.out.println(heap.size());
+		System.out.println(heap.peek());
+		System.out.println(heap.size());
+		heap.display();
+		System.out.println(heap.isEmpty());
+		
+		while(heap.size() > 0) {
+			heap.remove();
+		}
+		
+		System.out.println(heap.isEmpty());
 	}
 	
 	public static void heapSort(int [] arr) {
