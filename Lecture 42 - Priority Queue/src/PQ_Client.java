@@ -69,10 +69,10 @@ public class PQ_Client {
 //		
 //		ArrayList<ArrayList<Integer>> lists = new ArrayList<>();
 //		
+//		lists.add(l0);
 //		lists.add(l1);
 //		lists.add(l2);
 //		lists.add(l3);
-//		lists.add(l4);
 		
 		ArrayList<Integer> l0 = new ArrayList<>(Arrays.asList(10, 20, 30, 40));
 		ArrayList<Integer> l1 = new ArrayList<>(Arrays.asList(22, 27, 28, 35, 55));
