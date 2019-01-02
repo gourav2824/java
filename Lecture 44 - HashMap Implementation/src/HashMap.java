@@ -14,7 +14,7 @@ public class HashMap<K, V> {
 	}
 
 	Linked_List<HMNode>[] buckets;
-	int size;
+	private int size;
 
 	public HashMap() {
 
@@ -90,7 +90,7 @@ public class HashMap<K, V> {
 	}
 
 	public int size() {
-
+		return size;
 	}
 
 	public boolean isEmpty() {
