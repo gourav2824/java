@@ -83,10 +83,27 @@ public class HashMap<K, V> {
 		else {
 			hmnode.value = value;
 		}
+		
+		double lambda = size * 1.0 / buckets.length;
+		
+		if(lambda > 2) {
+			rehash();
+		}
 	}
 
 	public ArrayList<K> keySet() {
-
+		
+		ArrayList<K> keys = new ArrayList<>();
+		
+		for(int bi = 0; bi < buckets.length; bi++) {
+			for(int di = 0; di < buckets[bi].size(); di++) {
+				
+				HMNode hmnode = buckets[bi].getAt(di);
+				keys.add(hmnode.key);
+			}
+		}
+		
+		return keys;
 	}
 
 	public int size() {
@@ -94,11 +111,24 @@ public class HashMap<K, V> {
 	}
 
 	public boolean isEmpty() {
-
+		return size == 0;
 	}
 
 	public void display() {
-
+		
+		System.out.println("---------------------------");
+		
+		for(int bi = 0; bi < buckets.length; bi++) {
+			System.out.print("B" + bi + " - ");
+			for(int di = 0; di < buckets[bi].size(); di++) {
+				
+				HMNode hmnode = buckets[bi].getAt(di);
+				System.out.print("[" + hmnode.key + "_" + hmnode.value + "], ");
+			}
+			System.out.println(".");
+		}
+		
+		System.out.println("---------------------------");
 	}
 
 	private int hashFunction(K key) {
@@ -128,6 +158,26 @@ public class HashMap<K, V> {
 			if (hmnode.key.equals(key)) {
 				buckets[bi].removeAt(di);
 				return;
+			}
+		}
+	}
+	
+	private void rehash() {
+		
+		Linked_List<HMNode>[] oldBucketArr = buckets;
+		
+		buckets = new Linked_List[2 * buckets.length];
+		for(int bi = 0; bi < buckets.length; bi++) {
+			buckets[bi] = new Linked_List<>();
+		}
+		
+		size = 0;
+		
+		for(int bi = 0; bi < oldBucketArr.length; bi++) {
+			for(int di = 0; di < oldBucketArr[bi].size(); di++) {
+				
+				HMNode hmnode = oldBucketArr[bi].getAt(di);
+				put(hmnode.key, hmnode.value);
 			}
 		}
 	}
