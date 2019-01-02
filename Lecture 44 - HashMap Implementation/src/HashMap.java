@@ -86,7 +86,7 @@ public class HashMap<K, V> {
 		
 		double lambda = size * 1.0 / buckets.length;
 		
-		if(lambda > 2) {
+		if(lambda > 2.0) {
 			rehash();
 		}
 	}
