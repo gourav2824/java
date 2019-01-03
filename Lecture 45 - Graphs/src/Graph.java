@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Graph {
 	
@@ -78,5 +79,130 @@ public class Graph {
 		for(String vname : vnames) {
 			System.out.println(vname + " -> " + vces.get(vname));
 		}
+	}
+	
+	public boolean hasPath(String src, String dest) {
+		
+		HashSet<String> visited = new HashSet<>();
+		return hasPathHelper(src, dest, visited);
+	}
+	
+	private boolean hasPathHelper(String src, String dest, HashSet<String> visited) {
+		
+		if(src.equals(dest)) {
+			return true;
+		}
+		
+		visited.add(src);
+		
+		for(String nbr : vces.get(src).keySet()) {
+			
+			if(visited.contains(nbr) == false) {
+				
+				boolean found = hasPathHelper(nbr, dest, visited);
+				if(found == true) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	public void printAllPaths(String src, String dest) {
+		
+		HashSet<String> visited = new HashSet<>();
+		printAllPaths(src, dest, visited, src);
+	}
+	
+	private void printAllPaths(String src, String dest, HashSet<String> visited, String psf) {
+		
+		if(src.equals(dest)) {
+			System.out.println(psf);
+		}
+		
+		visited.add(src);
+		
+		for(String nbr : vces.get(src).keySet()) {
+			
+			if(visited.contains(nbr) == false) {
+				printAllPaths(nbr, dest, visited, psf + nbr);
+			}
+		}
+		
+		visited.remove(src);
+	}
+	
+	private String sp;
+	private String lp;
+	private String cp;
+	private String fp;
+	
+	private int spw;
+	private int lpw;
+	private int cpw;
+	private int fpw;
+	
+	public void MultiSolver(String s, String d, int cf, int ff, int k) {
+		
+		sp = "";
+		lp = "";
+		cp = "";
+		fp = "";
+		
+		spw = Integer.MAX_VALUE;
+		lpw = Integer.MIN_VALUE;
+		cpw = Integer.MAX_VALUE;
+		fpw = Integer.MIN_VALUE;
+		
+		HashSet<String> visited = new HashSet<>();
+		MultiSolver(s, d, visited, cf, ff, k, s, 0);
+		
+		System.out.println("Smallest = " + sp + " @ " + spw);
+		System.out.println("Largest = " + lp + " @ " + lpw);
+		System.out.println("Ceil = " + cp + " @ " + cpw);
+		System.out.println("Floor = " + fp + " @ " + fpw);
+	}
+	
+	private void MultiSolver(String s, String d, HashSet<String> visited, int cf, int ff, int k, String psf, int wsf) {
+		
+		if(s.equals(d)) {
+			
+			System.out.println(psf + " @ " + wsf);
+			
+			if(wsf < spw) {
+				spw = wsf;
+				sp = psf;
+			}
+			
+			if(wsf > lpw) {
+				lpw = wsf;
+				lp = psf;
+			}
+			
+			if(wsf > cf && wsf < cpw) {
+				cpw = wsf;
+				cp = psf;
+			}
+			
+			if(wsf < ff && wsf > fpw) {
+				fpw = wsf;
+				fp = psf;
+			}
+			
+			return;
+		}
+		
+		visited.add(s);
+		
+		for(String nbr : vces.get(s).keySet()) {
+			
+			if(visited.contains(nbr) == false) {
+				int nbrwt = vces.get(s).get(nbr);
+				MultiSolver(nbr, d, visited, cf, ff, k, psf + nbr, wsf + nbrwt);
+			}
+		}
+		
+		visited.remove(s);
 	}
 }
