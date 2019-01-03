@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="QueueToStackAdapter"/>
 <fullyQualifiedTypeName name="Activity"/>
 <fullyQualifiedTypeName name="javax.xml.soap.Node"/>
-<fullyQualifiedTypeName name="Linked_List"/>
 <fullyQualifiedTypeName name="org.w3c.dom.Node"/>
 <fullyQualifiedTypeName name="Generic_Trees"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
@@ -32,6 +31,8 @@
 <fullyQualifiedTypeName name="java.util.PriorityQueue"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="Heap"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Linked_List"/>
+<fullyQualifiedTypeName name="HashMap.HMNode"/>
 </qualifiedTypeNameHistroy>
