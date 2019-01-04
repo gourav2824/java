@@ -415,8 +415,10 @@ public class Graph {
 		HashMap<String, Integer> visited = new HashMap<>();
 		
 		for(String v : vces.keySet()) {
-			if(isBipartiteHelper(v, visited) == false) {
-				return false;
+			if(visited.containsKey(v) == false) {
+				if(isBipartiteHelper(v, visited) == false) {
+					return false;
+				}
 			}
 		}
 		
@@ -430,7 +432,6 @@ public class Graph {
 		
 		curr.addLast(s);
 		int level = 1;
-		visited.put(s, level);
 		
 		while(curr.size() > 0) {
 			

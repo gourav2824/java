@@ -82,6 +82,5 @@ public class Client {
 //		System.out.println(g.isCyclic());
 		
 		System.out.println(g.isBipartite());
-		
 	}
 }
