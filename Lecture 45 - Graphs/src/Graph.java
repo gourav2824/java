@@ -409,4 +409,55 @@ public class Graph {
 		
 		return false;
 	}
+	
+	public boolean isBipartite() {
+		
+		HashMap<String, Integer> visited = new HashMap<>();
+		
+		for(String v : vces.keySet()) {
+			if(isBipartiteHelper(v, visited) == false) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	private boolean isBipartiteHelper(String s, HashMap<String, Integer> visited) {
+		
+		LinkedList<String> curr = new LinkedList<>();
+		LinkedList<String> next = new LinkedList<>();
+		
+		curr.addLast(s);
+		int level = 1;
+		visited.put(s, level);
+		
+		while(curr.size() > 0) {
+			
+			String rem = curr.removeFirst();
+			
+			if(visited.containsKey(rem) == true) {
+				int oldLevel = visited.get(rem);
+				if(oldLevel % 2 != level % 2) {
+					return false;
+				}
+			}
+			
+			visited.put(rem, level);
+			
+			for(String n : vces.get(rem).keySet()) {
+				if(visited.containsKey(n) == false) {
+					next.addLast(n);
+				}
+			}
+			
+			if(curr.size() == 0) {
+				curr = next;
+				next = new LinkedList<>();
+				level++;
+			}
+		}
+		
+		return true;
+	}
 }
