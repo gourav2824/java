@@ -355,4 +355,23 @@ public class Graph {
 		
 		return comp;
 	}
+	
+	public boolean isCyclic() {
+		
+	}
+	
+	public boolean isConnected() {
+		
+		HashSet<String> visited = new HashSet<>();
+		ArrayList<String> vertices = new ArrayList<>(vces.keySet());
+		
+		String ver = vertices.get(0);
+		gccbft(ver, visited);
+		
+		if(visited.size() == vertices.size()) {
+			return true;
+		}
+		
+		return false;
+	}
 }
