@@ -283,4 +283,33 @@ public class Graph {
 		
 		return false;
 	}
+	
+	public boolean dfs(String s, String d) {
+		
+		LinkedList<TPair> stack = new LinkedList<>();
+		stack.addFirst(new TPair(s, s, 0));
+		
+		HashSet<String> visited = new HashSet<>();
+		
+		while(stack.size() > 0) {
+			
+			TPair rem = stack.removeFirst();
+			visited.add(rem.v);
+			
+			System.out.println(rem.v + " @ " + rem.p);
+			
+			if(rem.v.equals(d)) {
+				return true;
+			}
+			
+			for(String n : vces.get(rem.v).keySet()) {
+				if(visited.contains(n) == false) {
+					TPair np = new TPair(n, rem.p + n, rem.w + vces.get(rem.v).get(n));
+					stack.addFirst(np);
+				}
+			}
+		}
+		
+		return false;
+	}
 }
