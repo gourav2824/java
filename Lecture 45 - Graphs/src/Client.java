@@ -79,5 +79,6 @@ public class Client {
 //		g.display();
 //		System.out.println(g.getConnectedComponents());
 		System.out.println(g.isConnected());
+		System.out.println(g.isCyclic());
 	}
 }
