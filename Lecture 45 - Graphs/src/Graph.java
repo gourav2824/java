@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class Graph {
 	
@@ -143,6 +145,24 @@ public class Graph {
 	private int cpw;
 	private int fpw;
 	
+	PriorityQueue<Pair> pq;
+	
+	private class Pair implements Comparable<Pair>{
+		
+		String psf;
+		int wsf;
+		
+		public Pair(String psf, int wsf) {
+			this.psf = psf;
+			this.wsf = wsf;
+		}
+
+		@Override
+		public int compareTo(Pair o) {
+			return this.wsf - o.wsf;
+		}
+	}
+	
 	public void MultiSolver(String s, String d, int cf, int ff, int k) {
 		
 		sp = "";
@@ -155,6 +175,8 @@ public class Graph {
 		cpw = Integer.MAX_VALUE;
 		fpw = Integer.MIN_VALUE;
 		
+		pq = new PriorityQueue<>();
+		
 		HashSet<String> visited = new HashSet<>();
 		MultiSolver(s, d, visited, cf, ff, k, s, 0);
 		
@@ -162,6 +184,8 @@ public class Graph {
 		System.out.println("Largest = " + lp + " @ " + lpw);
 		System.out.println("Ceil = " + cp + " @ " + cpw);
 		System.out.println("Floor = " + fp + " @ " + fpw);
+		
+		System.out.println(k + "th Largest = " + pq.peek().psf + " @ " + pq.peek().wsf);
 	}
 	
 	private void MultiSolver(String s, String d, HashSet<String> visited, int cf, int ff, int k, String psf, int wsf) {
@@ -190,6 +214,17 @@ public class Graph {
 				fp = psf;
 			}
 			
+			if(pq.size() < k) {
+				pq.add(new Pair(psf, wsf));
+			}
+			
+			else {
+				if(wsf > pq.peek().wsf) {
+					pq.remove();
+					pq.add(new Pair(psf, wsf));
+				}
+			}
+			
 			return;
 		}
 		
@@ -204,5 +239,48 @@ public class Graph {
 		}
 		
 		visited.remove(s);
+	}
+	
+	private class TPair {
+		
+		String v;
+		String p;
+		int w;
+		
+		public TPair(String v, String p, int w) {
+			
+			this.v = v;
+			this.p = p;
+			this.w = w;
+		}
+	}
+	
+	public boolean bfs(String s, String d) {
+		
+		LinkedList<TPair> queue = new LinkedList<>();
+		queue.add(new TPair(s, s, 0));
+		
+		HashSet<String> visited = new HashSet<>();
+		
+		while(queue.size() > 0) {
+			
+			TPair rem = queue.removeFirst();
+			visited.add(rem.v);
+			
+			System.out.println(rem.v + " @ " + rem.p);
+			
+			if(rem.v.equals(d)) {
+				return true;
+			}
+			
+			for(String n : vces.get(rem.v).keySet()) {
+				if(visited.contains(n) == false) {
+					TPair np = new TPair(n, rem.p + n, rem.w + vces.get(rem.v).get(n));
+					queue.addLast(np);
+				}
+			}
+		}
+		
+		return false;
 	}
 }

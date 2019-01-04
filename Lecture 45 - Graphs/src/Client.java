@@ -21,8 +21,9 @@ public class Client {
 //		g.addEdge("E", "F", 3);
 //		g.addEdge("E", "G", 8);
 //		g.addEdge("F", "G", 3);
-		
+//		
 //		g.display();
+//		System.out.println(g.bfs("A", "G"));
 //		g.removeEdge("B", "C");
 //		g.display();
 //		g.removeVertex("D");
@@ -52,6 +53,6 @@ public class Client {
 		g.addEdge("D", "F", 10);
 		g.addEdge("E", "F", 3);
 		
-		g.MultiSolver("A", "F", 14, 15, 0);
+		g.MultiSolver("A", "F", 14, 15, 5);
 	}
 }
