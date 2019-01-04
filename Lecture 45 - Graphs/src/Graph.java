@@ -258,7 +258,7 @@ public class Graph {
 	public boolean bfs(String s, String d) {
 		
 		LinkedList<TPair> queue = new LinkedList<>();
-		queue.add(new TPair(s, s, 0));
+		queue.addLast(new TPair(s, s, 0));
 		
 		HashSet<String> visited = new HashSet<>();
 		
@@ -311,5 +311,48 @@ public class Graph {
 		}
 		
 		return false;
+	}
+	
+	public ArrayList<String> getConnectedComponents() {
+		
+		ArrayList<String> cc = new ArrayList<>();
+		HashSet<String> visited = new HashSet<>();
+		
+		for(String ver : vces.keySet()) {
+			if(visited.contains(ver) == false) {
+				String comp = gccbft(ver, visited);
+				cc.add(comp);
+			}
+		}
+		
+		return cc;
+	}
+	
+	private String gccbft(String s, HashSet<String> visited) {
+		
+		String comp = "";
+		
+		LinkedList<String> queue = new LinkedList<>();
+		queue.addLast(s);
+		
+		while(queue.size() > 0) {
+			
+			String rem = queue.removeFirst();
+			
+			if(visited.contains(rem)) {
+				continue;
+			}
+			visited.add(rem);
+			
+			comp += rem;
+			
+			for(String n : vces.get(rem).keySet()) {
+				if(visited.contains(n) == false) {
+					queue.addLast(n);
+				}
+			}
+		}
+		
+		return comp;
 	}
 }
