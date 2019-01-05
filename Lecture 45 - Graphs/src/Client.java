@@ -85,8 +85,10 @@ public class Client {
 //		System.out.println(g.isBipartite());
 
 //		g.hamiltonianCycleAndPath("C");
-
-		isKnightsTour(new int[5][5], 1, 3, 1);
+		
+		int n = 5;
+		int[][] chess = new int[5][5];
+		isKnightsTour(chess, 1, 3, 1);
 	}
 
 	static int[][] dirs = {{-2, +1}, {-1, +2}, {+1, +2}, {+2, +1}, {+2, -1}, {+1, -2}, {-1, -2}, {-2, -1}};
