@@ -87,7 +87,7 @@ public class Client {
 //		g.hamiltonianCycleAndPath("C");
 		
 		int n = 5;
-		int[][] chess = new int[5][5];
+		int[][] chess = new int[n][n];
 		isKnightsTour(chess, 1, 3, 1);
 	}
 
