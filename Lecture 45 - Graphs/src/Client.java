@@ -90,7 +90,10 @@ public class Client {
 
 //		g.hamiltonianCycleAndPath("C");
 		
-		g.Djikstra("A");
+//		g.Djikstra("A");
+		
+		Graph mst = g.Prims();
+		mst.display();
 	}
 
 	static int[][] dirs = {{-2, +1}, {-1, +2}, {+1, +2}, {+2, +1}, {+2, -1}, {+1, -2}, {-1, -2}, {-2, -1}};
