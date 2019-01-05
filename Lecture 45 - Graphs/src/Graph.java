@@ -461,4 +461,36 @@ public class Graph {
 		
 		return true;
 	}
+	
+	public void hamiltonianCycleAndPath(String s) {
+		
+		HashSet<String> visited = new HashSet<>();
+		visited.add(s);
+		
+		hamiltonianCycleAndPath(s, s, visited, s);
+	}
+	
+	private void hamiltonianCycleAndPath(String s, String os, HashSet<String> visited, String psf) {
+		
+		if(visited.size() == vces.size()) {
+			
+			System.out.print(psf + " is Hamiltonian Path");
+			
+			if(vces.get(s).containsKey(os) == true) {
+				System.out.println(" and Cycle.");
+			}
+			
+			else {
+				System.out.println(".");
+			}
+		}
+		
+		for(String n : vces.get(s).keySet()) {
+			if(visited.contains(n) == false) {
+				visited.add(n);
+				hamiltonianCycleAndPath(n, os, visited, psf + n);
+				visited.remove(n);
+			}
+		}
+	}
 }
