@@ -57,24 +57,24 @@ public class Client {
 //		
 //		g.MultiSolver("A", "F", 14, 15, 5);
 
-//		Graph g = new Graph();
-//		
-//		g.addVertex("A");
-//		g.addVertex("B");
-//		g.addVertex("C");
-//		g.addVertex("D");
-//		g.addVertex("E");
-//		g.addVertex("F");
-//		g.addVertex("G");
-//		
-//		g.addEdge("A", "D", 40);
-//		g.addEdge("A", "B", 10);
-//		g.addEdge("B", "C", 10);
-//		g.addEdge("C", "D", 10);
-//		g.addEdge("D", "E", 2);
-//		g.addEdge("E", "F", 3);
-//		g.addEdge("E", "G", 8);
-//		g.addEdge("F", "G", 3);
+		Graph g = new Graph();
+		
+		g.addVertex("A");
+		g.addVertex("B");
+		g.addVertex("C");
+		g.addVertex("D");
+		g.addVertex("E");
+		g.addVertex("F");
+		g.addVertex("G");
+		
+		g.addEdge("A", "D", 40);
+		g.addEdge("A", "B", 10);
+		g.addEdge("B", "C", 10);
+		g.addEdge("C", "D", 10);
+		g.addEdge("D", "E", 2);
+		g.addEdge("E", "F", 3);
+		g.addEdge("E", "G", 8);
+		g.addEdge("F", "G", 3);
 //		g.addEdge("C", "F", 10);
 
 //		g.display();
@@ -86,9 +86,11 @@ public class Client {
 
 //		g.hamiltonianCycleAndPath("C");
 		
-		int n = 5;
-		int[][] chess = new int[n][n];
-		isKnightsTour(chess, 1, 3, 1);
+//		int n = 5;
+//		int[][] chess = new int[n][n];
+//		isKnightsTour(chess, 1, 3, 1);
+		
+		g.Djikstra("A");
 	}
 
 	static int[][] dirs = {{-2, +1}, {-1, +2}, {+1, +2}, {+2, +1}, {+2, -1}, {+1, -2}, {-1, -2}, {-2, -1}};
