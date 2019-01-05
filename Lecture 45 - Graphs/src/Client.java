@@ -2,7 +2,11 @@
 public class Client {
 
 	public static void main(String[] args) {
-
+		
+//		int n = 5;
+//		int[][] chess = new int[n][n];
+//		isKnightsTour(chess, 1, 3, 1);
+		
 //		Graph g = new Graph();
 //		
 //		g.addVertex("A");
@@ -85,10 +89,6 @@ public class Client {
 //		System.out.println(g.isBipartite());
 
 //		g.hamiltonianCycleAndPath("C");
-		
-//		int n = 5;
-//		int[][] chess = new int[n][n];
-//		isKnightsTour(chess, 1, 3, 1);
 		
 		g.Djikstra("A");
 	}
