@@ -56,7 +56,6 @@ public class Djikstra {
 			System.out.println(rem.s + " via " + rem.psf + " @ " + rem.wsf);
 
 			// 4. Add the Unvisited Neighbors
-			
 			for(int i = 0; i < graph.length; i++) {
 				if(graph[rem.s][i] != null && visited[i] == false) {
 					DPair np = new DPair(i, rem.psf + i, rem.wsf + graph[rem.s][i]);
