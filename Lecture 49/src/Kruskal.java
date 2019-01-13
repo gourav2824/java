@@ -112,7 +112,7 @@ public class Kruskal {
 		}
 		
 		else {
-			DSNode pnode = vnode.parent;
+			DSNode pnode = find(vnode.parent);
 			vnode.parent = pnode;
 			return pnode;
 		}
