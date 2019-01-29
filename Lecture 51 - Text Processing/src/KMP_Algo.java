@@ -29,7 +29,7 @@ public class KMP_Algo {
 			}
 			
 			else {
-				if(j > p.length()) {
+				if(j > 0) {
 					j = lps[j - 1];
 				}
 				else {
