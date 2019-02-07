@@ -17,14 +17,7 @@ public class ChefAndMagicalJars {
 		        A[i] = sc.nextInt();
 		    }
 		    
-		    int max = Integer.MIN_VALUE;
-		    for(int val : A){
-		        if(val > max){
-		            max = val;
-		        }
-		    }
-		    
-		    System.out.println(max);
+		    //code
 		    
 		    tno ++;
 		}
