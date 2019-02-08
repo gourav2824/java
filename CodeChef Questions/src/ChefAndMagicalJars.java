@@ -17,7 +17,14 @@ public class ChefAndMagicalJars {
 		        A[i] = sc.nextInt();
 		    }
 		    
-		    //code
+		    long jars = 0;
+		    for(int val : A) {
+		    	jars += val;
+		    }
+		    
+		    jars = jars - n + 1;
+		    
+		    System.out.println(jars);
 		    
 		    tno ++;
 		}
