@@ -10,7 +10,7 @@ public class ChefAndBeautifulDigit {
 		
 		while(tno < t) {
 			
-			long n = sc.nextLong();			//5438932167328
+			long n = sc.nextLong();			// 5438932167328
 			long d = sc.nextLong();
 			
 			long quo = n;
