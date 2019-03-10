@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -15,58 +16,109 @@ public class ChefGotRecipes {
 			int n = sc.nextInt();
 			String[] d = new String[n];
 			
-			HashSet<Character> sets[] = new HashSet[n];
+			map = new HashMap<>();
+			combinations("aeiou", "");
+			
+			HashSet<Character> set;
 			
 			for(int i = 0; i < n; i++) {
 				
 				d[i] = sc.next();
-				sets[i] = new HashSet<>();
+				set = new HashSet<>();
 				
 				for(char ch : d[i].toCharArray()) {
-					if(sets[i].contains(ch) == false) {
-						sets[i].add(ch);
+					if(set.contains(ch) == false) {
+						set.add(ch);
 					}
+				}
+				
+				String vowels = "aeiou";
+				String str = "";
+				
+				for(char ch : vowels.toCharArray()) {
+					if(set.contains(ch)) {
+						str = str + ch;
+					}
+				}
+				
+				if(map.containsKey(str)) {
+					map.put(str, map.get(str) + 1);
+				}
+			}
+			
+			HashMap<String, Integer> temp = map;
+			map = new HashMap<>();
+			
+			for(String str : temp.keySet()) {
+				if(temp.get(str) > 0) {
+					map.put(str, temp.get(str));
 				}
 			}
 			
 			int noOfMeals = 0;
-			Character[] vowelsArr = {'a', 'e', 'i', 'o', 'u'};
-			HashSet<Character> vowels = new HashSet<>(Arrays.asList(vowelsArr));
+			String vowels = "aeiou";
 			
-			for(int i = 0; i < n; i++) {
-				for(int j = i + 1; j < n; j++) {
+			for(String str1 : map.keySet()) {
+				for(String str2 : map.keySet()) {
 					
-//					String meal = d[i] + d[j];
-//					HashSet<Character> vowels = new HashSet<>();
+					if(str1.equals(str2)) {
+						continue;
+					}
 					
-//					for(char ch : meal.toCharArray()) {
-//						if(vowels.contains(ch) == false) {
-//							vowels.add(ch);
-//						}
-//						
-//						if(vowels.size() == 5) {
-//							noOfMeals ++;
-//							break;
-//						}
-//					}
+					String str = str1 + str2;
+					boolean valid = true;
 					
-					boolean found = true;
-					
-					for(char ch : vowels) {
-						if(sets[i].contains(ch) == false && sets[j].contains(ch) == false) {
-							found = false;
+					for(char ch : vowels.toCharArray()) {
+						
+						boolean found = false;
+						
+						for(char chs : str.toCharArray()) {
+							if(ch == chs) {
+								found = true;
+							}
+						}
+						
+						if(found == false) {
+							valid = false;
 							break;
 						}
 					}
 					
-					if(found == true) {
-						noOfMeals ++;
+					if(valid == true) {
+						int num = map.get(str1) * map.get(str2);
+						noOfMeals += num;
 					}
 				}
+			}
+			
+			noOfMeals = noOfMeals / 2;
+			
+			if(map.containsKey("aeiou")) {
+				int num = map.get("aeiou") * (map.get("aeiou") - 1);
+			    num = num / 2;
+			    noOfMeals += num;
 			}
 			
 			System.out.println(noOfMeals);
 			tno ++;
 		}
+	}
+	
+	static HashMap<String, Integer> map;
+	
+	private static void combinations(String str, String res) {
+		
+		if(str.length() == 0) {
+			if(res.length() > 0) {
+				map.put(res, 0);
+			}
+			return;
+		}
+		
+		char ch = str.charAt(0);
+		String ros = str.substring(1);
+		
+		combinations(ros, res);
+		combinations(ros, res + ch);
 	}
 }
