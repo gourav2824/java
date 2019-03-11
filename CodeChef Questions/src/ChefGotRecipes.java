@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -54,6 +53,8 @@ public class ChefGotRecipes {
 					map.put(str, temp.get(str));
 				}
 			}
+			
+			System.out.println(map);
 			
 			int noOfMeals = 0;
 			String vowels = "aeiou";
