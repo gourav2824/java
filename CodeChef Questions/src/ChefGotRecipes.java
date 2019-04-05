@@ -56,7 +56,7 @@ public class ChefGotRecipes {
 			
 			System.out.println(map);
 			
-			int noOfMeals = 0;
+			long noOfMeals = 0;
 			String vowels = "aeiou";
 			
 			for(String str1 : map.keySet()) {
