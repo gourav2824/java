@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FriendOrGirlfriend {
@@ -14,19 +15,23 @@ public class FriendOrGirlfriend {
 			String s = sc.next();
 			char x = sc.next().charAt(0);
 			
-			int substrs = 0;
+			long substrs = 0;
+			ArrayList<Integer> idx = new ArrayList<>();
+			
 			for(int i = 0; i < n; i++) {
-				for(int j = 0; j <= n; j++) {
-					if(i < j) {
-						String str = s.substring(i, j);
-						
-						for(char c : str.toCharArray()) {
-							if(c == x) {
-								substrs ++;
-								break;
-							}
-						}
-					}
+				if(s.charAt(i) == x) {
+					idx.add(i);
+				}
+			}
+			
+			for(int i = 0; i < idx.size(); i++) {
+				
+				if(i == 0) {
+					substrs += (idx.get(i) + 1) * (n - idx.get(i));
+				}
+				
+				else {
+					substrs += (idx.get(i) - idx.get(i - 1)) * (n - idx.get(i));
 				}
 			}
 			
