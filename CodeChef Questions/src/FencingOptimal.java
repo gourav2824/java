@@ -95,7 +95,7 @@ public class FencingOptimal {
 				// n - 1 -> n
 				// m - 1 -> m
 				
-				if(r == 1 && c == 1) {			// 0 -> 1
+				if(r == 1 && c == 1) {
 					
 					fences += 2;
 					
